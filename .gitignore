@@ -1,0 +1,60 @@
+.gradle
+build/
+
+# maven ignore
+**/target/
+*.versionsBackup
+.factorypath
+.flattened-pom.xml
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+*rebel.xml
+
+# STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# idea ignore
+*.ipr
+*.iml
+*.iws
+mvwn.*
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+.idea/
+.idea
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+.vscode
+
+# grovovy脚本文件
+*.groovy
+
+# included again
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
