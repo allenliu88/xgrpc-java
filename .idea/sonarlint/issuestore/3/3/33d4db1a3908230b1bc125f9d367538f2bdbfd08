@@ -1,0 +1,38 @@
+
+u
+java:S2293Û"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨û¼İıÿÿÿÿ
+p
+java:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚˜şÁ
+K
+java:S1066Í"/Merge this if statement with the enclosing one.(Íˆå¥ÿÿÿÿÿ
+F
+java:S1066Ò"/Merge this if statement with the enclosing one.(£Ûúò
+u
+java:S1488Ä"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~
+n	java:S116n"TRename this field "metadata_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àû› şÿÿÿÿ
+k	java:S116ƒ"PRename this field "body_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Û«¨şÿÿÿÿ
+
+java:S4144ˆ"cUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 751.( éÖşÿÿÿÿ
+h
+java:S3776!"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ŒÕ†¢
+]
+java:S1126Õ"AReplace this if-then-else statement by a single return statement.(®Èäîÿÿÿÿÿ
+o	java:S116ğ"TRename this field "metadata_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àû› şÿÿÿÿ
+v	java:S116ò"[Rename this field "metadataBuilder_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò€Š¬ÿÿÿÿÿ
+k	java:S116å"PRename this field "body_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Û«¨şÿÿÿÿ
+r	java:S116ç"WRename this field "bodyBuilder_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ²¯×øÿÿÿÿ
+?	java:S108ç")Either remove or fill this block of code.(º„ç½
+o
+java:S2975¢"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ
+D
+java:S1185¢"(Remove this method to simply inherit it.(Îõ¾Òûÿÿÿÿ
+D
+java:S1185¦"(Remove this method to simply inherit it.(ÑÍ“Ëûÿÿÿÿ
+D
+java:S1185¬"(Remove this method to simply inherit it.(Ã•Œƒüÿÿÿÿ
+D
+java:S1185±"(Remove this method to simply inherit it.(»¤Å“ûÿÿÿÿ
+?
+java:S1185¶"(Remove this method to simply inherit it.(§ß—¡
+?
+java:S1185¼"(Remove this method to simply inherit it.(¿¸Ú©

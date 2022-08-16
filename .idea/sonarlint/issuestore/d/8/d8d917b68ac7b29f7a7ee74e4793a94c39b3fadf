@@ -1,0 +1,78 @@
+
+[	java:S112o"FDefine and throw a dedicated exception instead of using a generic one.(ÃÔ÷ı
+\	java:S112Ø"FDefine and throw a dedicated exception instead of using a generic one.(ÃÔ÷ı
+\	java:S112ã"FDefine and throw a dedicated exception instead of using a generic one.(ÃÔ÷ı
+v
+java:S1192p"[Define a constant instead of duplicating this literal "Invalid map field number: " 3 times.(…›‚Šşÿÿÿÿ
+f	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß”â¢
+f	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ÒÉï
+l	java:S117´"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œá¶ùÿÿÿÿ
+g	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÓ¡€
+f
+java:S1301k"KReplace this "switch" statement by "if" statements to increase readability.(³›¯°ùÿÿÿÿ
+g
+java:S1301Ô"KReplace this "switch" statement by "if" statements to increase readability.(³›¯°ùÿÿÿÿ
+g
+java:S1301ß"KReplace this "switch" statement by "if" statements to increase readability.(³›¯°ùÿÿÿÿ
+u
+java:S1488Â"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~
+j	java:S116|"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åµØ…üÿÿÿÿ
+o	java:S116"TRename this field "clientIp_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï‘¶·øÿÿÿÿ
+i	java:S116Ì"SRename this field "headers_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó¶ŒÀ
+z
+java:S4144°"cUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 919.(îÍ‚µ
+B
+java:S1948|"'Make "type_" transient or serializable.(åµØ…üÿÿÿÿ
+G
+java:S1948"+Make "clientIp_" transient or serializable.(ï‘¶·øÿÿÿÿ
+A
+java:S1948Ì"*Make "headers_" transient or serializable.(ó¶ŒÀ
+r
+java:S3077|"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(åµØ…üÿÿÿÿ
+s
+java:S3077"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(ï‘¶·øÿÿÿÿ
+D
+java:S1940=")Use the opposite operator ("==") instead.(«‹¦œøÿÿÿÿ
+Q
+java:S1133æ"5Do not forget to remove this deprecated code someday.(­èÍşûÿÿÿÿ
+D
+java:S1123æ"(Add the missing @deprecated Javadoc tag.(­èÍşûÿÿÿÿ
+]
+java:S1126Ó"AReplace this if-then-else statement by a single return statement.(®Èäîÿÿÿÿÿ
+k	java:S116û"URename this field "bitField0_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö»³Ä
+f	java:S116ı"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÔéí
+i	java:S116Â"TRename this field "clientIp_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıèæ/
+i	java:S116ˆ"SRename this field "headers_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó¶ŒÀ
+V
+java:S1161Ò":Add the "@Override" annotation above this method signature(“ŠÅÀüÿÿÿÿ
+Q
+java:S1161İ":Add the "@Override" annotation above this method signature(”¶ãø
+?	java:S108û")Either remove or fill this block of code.(º„ç½
+Z
+java:S1854 "CRemove this useless assignment to local variable "from_bitField0_".(ÆÓ¡€
+K
+java:S1481 "4Remove this unused "from_bitField0_" local variable.(ÆÓ¡€
+o
+java:S2975ª"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ
+D
+java:S1185ª"(Remove this method to simply inherit it.(Îõ¾Òûÿÿÿÿ
+D
+java:S1185®"(Remove this method to simply inherit it.(ÑÍ“Ëûÿÿÿÿ
+D
+java:S1185´"(Remove this method to simply inherit it.(Ã•Œƒüÿÿÿÿ
+D
+java:S1185¹"(Remove this method to simply inherit it.(»¤Å“ûÿÿÿÿ
+?
+java:S1185¾"(Remove this method to simply inherit it.(§ß—¡
+?
+java:S1185Ä"(Remove this method to simply inherit it.(¿¸Ú©
+3
+java:S1116“"Remove this empty statement.(‚åÍÈ
+Q
+java:S1133®"5Do not forget to remove this deprecated code someday.(­èÍşûÿÿÿÿ
+D
+java:S1123®"(Add the missing @deprecated Javadoc tag.(­èÍşûÿÿÿÿ
+Q
+java:S1133è"5Do not forget to remove this deprecated code someday.(Ç–ŒÚøÿÿÿÿ
+D
+java:S1123è"(Add the missing @deprecated Javadoc tag.(Ç–ŒÚøÿÿÿÿ

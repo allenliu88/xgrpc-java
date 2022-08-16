@@ -1,0 +1,19 @@
+
+X
+java:S1141Ü"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8İÒÍ‰©0
+U
+java:S2629"7Use the built-in formatting to construct this argument.(‚ë’œ8ŞÒÍ‰©0
+h
+java:S2184G"FCast one of the operands of this multiplication operation to a "long".(ê‹şüÿÿÿÿÿ8ŞÒÍ‰©0
+[
+java:S5993Q"9Change the visibility of this constructor to "protected".(×Ô¼éüÿÿÿÿ8ùÒÍ‰©0
+]
+java:S1117p"@Rename "grpcExecutor" which hides the field declared at line 63.(Äšîœ8ûÒÍ‰©0
+_
+java:S3457"AFormat specifiers should be used instead of string concatenation.(‚ë’œ8üÒÍ‰©0
+u
+java:S3776Í"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÛöŠœûÿÿÿÿ8ÿÒÍ‰©0
+u
+java:S2142Ğ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾
+`
+java:S4201³"IRemove this unnecessary null check; "instanceof" returns false for nulls.(âëŠ÷

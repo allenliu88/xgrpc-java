@@ -1,0 +1,12 @@
+io/xgrpc/plugin/auth/constant/ActionTypesTest.class
+io/xgrpc/plugin/auth/constant/ConstantsTest.class
+io/xgrpc/plugin/auth/api/LoginIdentityContextTest.class
+io/xgrpc/plugin/auth/spi/mock/MockAuthPluginService.class
+io/xgrpc/plugin/auth/exception/AccessExceptionTest.class
+io/xgrpc/plugin/auth/spi/mock/MockClientAuthService.class
+io/xgrpc/plugin/auth/api/RequestResourceTest.class
+io/xgrpc/plugin/auth/spi/server/AuthPluginManagerTest.class
+io/xgrpc/plugin/auth/spi/mock/MockEmptyNameAuthPluginService.class
+io/xgrpc/plugin/auth/api/IdentityContextTest.class
+io/xgrpc/plugin/auth/spi/client/ClientAuthPluginManagerTest.class
+io/xgrpc/plugin/auth/api/PermissionTest.class

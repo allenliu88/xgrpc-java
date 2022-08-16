@@ -1,0 +1,14 @@
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/spi/server/AuthPluginManager.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/constant/Constants.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/spi/client/AbstractClientAuthService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/exception/AccessException.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/api/IdentityContext.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/constant/SignType.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/api/LoginIdentityContext.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/constant/ActionTypes.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/spi/client/ClientAuthService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/spi/client/ClientAuthPluginManager.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/spi/server/AuthPluginService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/api/Resource.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/api/RequestResource.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/main/java/io/xgrpc/plugin/auth/api/Permission.java

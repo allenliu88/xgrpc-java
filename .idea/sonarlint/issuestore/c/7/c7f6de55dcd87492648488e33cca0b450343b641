@@ -1,0 +1,37 @@
+
+c	java:S112²"FDefine and throw a dedicated exception instead of using a generic one.(úµ˜¹8Ø¹ı‹ª0
+K
+java:S3740Ÿ"/Provide the parametrized type for this generic.(¥ØõÖıÿÿÿÿ
+F
+java:S1066ü"/Merge this if statement with the enclosing one.(ªµ²ì
+Q
+java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141›"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141Ò"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+i
+java:S3776¨"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(îøŠ
+[
+java:S1117ş"?Rename "connections" which hides the field declared at line 95.(’‚Âšúÿÿÿÿ
+i
+java:S3776¡"SRefactor this method to reduce its Cognitive Complexity from 105 to the 15 allowed.(ú¡­,
+H
+java:S1181ß"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8—ºı‹ª0
+z
+java:S2142ß"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(‡˜ÚÚøÿÿÿÿ
+U	java:S899É":Do something with the "boolean" value returned by "await".(áÀ™½ûÿÿÿÿ
+^
+java:S1117Î"GRename "connectionLimitRule" which hides the field declared at line 84.(«²óÃ
+X	java:S899µ"BDo something with the "boolean" value returned by "createNewFile".(÷ØÔÉ
+^
+java:S1117¹"GRename "connectionLimitRule" which hides the field declared at line 84.(†±´Å
+^
+java:S1126Á"BReplace this if-then-else statement by a single method invocation.(æÊ¼”ÿÿÿÿÿ
+X	java:S899Ñ"BDo something with the "boolean" value returned by "createNewFile".(÷ØÔÉ
+P
+java:S4719Ó"9Replace charset name argument with StandardCharsets.UTF_8(ßÜÂ˜
+C
+java:S1181é"%Catch Exception instead of Throwable.(ëß‹™8²ºı‹ª0
+E
+java:S1144æ".Remove this unused private "buildMeta" method.(’ø’¶

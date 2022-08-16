@@ -1,0 +1,19 @@
+
+E
+java:S3740-"/Provide the parametrized type for this generic.(–Ì³¸
+E
+java:S37401"/Provide the parametrized type for this generic.(›¬œ˜
+J
+java:S3740V"/Provide the parametrized type for this generic.(ù²¸üÿÿÿÿ
+K
+java:S3740"/Provide the parametrized type for this generic.(µéßÇùÿÿÿÿ
+?
+java:S2629N"$Invoke method(s) only conditionally.(í«¸óøÿÿÿÿ
+”
+java:S11307"~Remove the declaration of thrown exception 'io.xgrpc.api.exception.XgrpcException', as it cannot be thrown from method's body.(Èƒşæ
+V
+java:S1193A"@Replace the usage of the "instanceof" operator by a catch block.(Ïİúµ
+;
+java:S1181O"%Catch Exception instead of Throwable.(ëß‹™
+t
+java:S2142g"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾

@@ -1,0 +1,22 @@
+
+\	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¾Ùƒ½
+K
+java:S1066Œ"/Merge this if statement with the enclosing one.(ä¯ñËûÿÿÿÿ
+N
+java:S2629‚"7Use the built-in formatting to construct this argument.(…¦ÓÚ
+b
+java:S2259n"GA "NullPointerException" could be thrown; "tmpSelfIp" is nullable here.(ÍÄÏ‚úÿÿÿÿ
+y
+java:S1450E"cRemove the "preferHostnameOverIP" field and declare it as a local variable in the relevant methods.(ÑÆØÇ
+U
+java:S11186":Add a private constructor to hide the implicit public one.(ˆêŠ¹üÿÿÿÿ
+i
+java:S3776»"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(¢ ı‡
+X
+java:S3457Ä"AFormat specifiers should be used instead of string concatenation.(Á¯÷È
+]
+java:S3457Ò"AFormat specifiers should be used instead of string concatenation.(âÕı³úÿÿÿÿ
+]
+java:S3457î"AFormat specifiers should be used instead of string concatenation.(ÛÙÌşÿÿÿÿ
+X
+java:S3457‚"AFormat specifiers should be used instead of string concatenation.(…¦ÓÚ

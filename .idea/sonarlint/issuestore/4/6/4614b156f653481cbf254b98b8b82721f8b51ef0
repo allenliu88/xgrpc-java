@@ -1,0 +1,7 @@
+
+[	java:S112J"FDefine and throw a dedicated exception instead of using a generic one.(ÂŒï
+Z	java:S112a"FDefine and throw a dedicated exception instead of using a generic one.(•›·
+X
+java:S1610!"=Convert the abstract class "BaseRpcServer" into an interface.(Á¹à±şÿÿÿÿ
+
+java:S1130a"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(•›·

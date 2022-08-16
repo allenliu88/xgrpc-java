@@ -1,0 +1,12 @@
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/spi/mock/MockAuthPluginService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/api/PermissionTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/spi/mock/MockClientAuthService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/api/LoginIdentityContextTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/constant/ConstantsTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/spi/mock/MockEmptyNameAuthPluginService.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/spi/server/AuthPluginManagerTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/constant/ActionTypesTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/api/RequestResourceTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/exception/AccessExceptionTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/spi/client/ClientAuthPluginManagerTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-plugin/xgrpc-auth-plugin/src/test/java/io/xgrpc/plugin/auth/api/IdentityContextTest.java
