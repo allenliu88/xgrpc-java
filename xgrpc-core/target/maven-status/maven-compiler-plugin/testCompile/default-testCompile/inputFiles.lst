@@ -7,6 +7,7 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/control/TpsMonitorPointTest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/RequestFiltersTest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/RequestHandlerRegistryTest.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/grpc/GrpcRequestAcceptorTest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/core/ServerLoaderInfoRequestHandlerTest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/control/TpsRecorderTest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-core/src/test/java/io/xgrpc/core/remote/ClientConnectionEventListenerRegistryTest.java

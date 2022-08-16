@@ -24,6 +24,8 @@
         <module>xgrpc-core</module>
         <module>xgrpc-sys</module>
         <module>xgrpc-plugin</module>
+        <module>xgrpc-plugin/xgrpc-auth-plugin</module>
+        <module>xgrpc-plugin/xgrpc-encryption-plugin</module>
     </modules>
 
     <licenses>

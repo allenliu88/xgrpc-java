@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="io.xgrpc.core.remote.core.ServerReloaderRequestHandlerTest" time="0.361" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="io.xgrpc.core.remote.core.ServerReloaderRequestHandlerTest" time="0.415" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -51,7 +51,7 @@
     <property name="gopherProxySet" value="false"/>
     <property name="maven.home" value="/Users/allen/Customize/FreeInstall/Maven/apache-maven-3.6.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.class.path" value="/Users/allen/Customize/FreeInstall/Maven/apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="os.detected.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
@@ -76,5 +76,5 @@
     <property name="os.detected.version.minor" value="16"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="io.xgrpc.core.remote.core.ServerReloaderRequestHandlerTest" name="testHandle" time="0.361"/>
+  <testcase classname="io.xgrpc.core.remote.core.ServerReloaderRequestHandlerTest" name="testHandle" time="0.415"/>
 </testsuite>

@@ -25,6 +25,10 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>xgrpc-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>xgrpc-auth-plugin</artifactId>
         </dependency>
         <dependency>
