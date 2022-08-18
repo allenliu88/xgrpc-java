@@ -17,10 +17,10 @@
 package io.xgrpc.sys.utils;
 
 import static io.xgrpc.sys.env.Constants.IP_ADDRESS;
-import static io.xgrpc.sys.env.Constants.XGRPC_SERVER_IP;
 import static io.xgrpc.sys.env.Constants.PREFER_HOSTNAME_OVER_IP;
 import static io.xgrpc.sys.env.Constants.SYSTEM_PREFER_HOSTNAME_OVER_IP;
 import static io.xgrpc.sys.env.Constants.USE_ONLY_SITE_INTERFACES;
+import static io.xgrpc.sys.env.Constants.XGRPC_SERVER_IP;
 
 import java.io.IOException;
 import java.net.Inet4Address;

@@ -50,6 +50,18 @@
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.mycila.guice.extensions</groupId>
+            <artifactId>mycila-guice-injection</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mycila.guice.extensions</groupId>
+            <artifactId>mycila-guice-closeable</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mycila.guice.extensions</groupId>
+            <artifactId>mycila-guice-jsr250</artifactId>
+        </dependency>
 
         <!-- JRaft dependency start -->
         <dependency>

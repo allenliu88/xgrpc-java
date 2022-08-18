@@ -35,6 +35,11 @@ public abstract class BaseRpcServer {
     static {
         PayloadRegistry.init();
     }
+
+    @PreDestroy
+    public void destroy() {
+        Loggers.REMOTE.info("Xgrpc {} Rpc server destroy...", getClass().getSimpleName());
+    }
     
     /**
      * Start sever.
