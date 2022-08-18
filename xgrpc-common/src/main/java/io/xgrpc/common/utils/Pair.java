@@ -19,7 +19,7 @@ package io.xgrpc.common.utils;
 /**
  * Pair.
  *
- * @author nacos
+ * @author xgrpc
  */
 public class Pair<A, B> {
     

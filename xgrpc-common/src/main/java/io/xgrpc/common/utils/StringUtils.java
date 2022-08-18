@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
 /**
  * string util.
  *
- * @author Nacos
+ * @author Xgrpc
  * @author zzq
  */
 public class StringUtils {

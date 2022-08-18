@@ -73,7 +73,7 @@ public final class ExecutorFactory {
     
     public static final class Managed {
         
-        private static final String DEFAULT_NAMESPACE = "nacos";
+        private static final String DEFAULT_NAMESPACE = "xgrpc";
         
         private static final ThreadPoolManager THREAD_POOL_MANAGER = ThreadPoolManager.getInstance();
         

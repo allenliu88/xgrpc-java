@@ -19,9 +19,10 @@ package io.xgrpc.core.remote.core;
 
 import java.util.HashMap;
 
-import io.xgrpc.core.remote.Connection;
-import io.xgrpc.core.remote.ConnectionMeta;
+import io.xgrpc.core.remote.connection.Connection;
+import io.xgrpc.core.remote.connection.ConnectionMeta;
 import io.xgrpc.core.remote.grpc.GrpcConnection;
+import io.xgrpc.core.remote.listener.RpcAckCallbackInitorOrCleaner;
 import org.junit.Test;
 
 /**

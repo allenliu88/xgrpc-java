@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import io.xgrpc.common.http.client.NacosAsyncRestTemplate;
-import io.xgrpc.common.http.client.NacosRestTemplate;
+import io.xgrpc.common.http.client.XgrpcAsyncRestTemplate;
+import io.xgrpc.common.http.client.XgrpcRestTemplate;
 import io.xgrpc.common.utils.ExceptionUtil;
 import io.xgrpc.common.utils.ThreadUtils;
 import org.slf4j.Logger;
@@ -36,9 +36,9 @@ public final class HttpClientBeanHolder {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientBeanHolder.class);
     
-    private static final Map<String, NacosRestTemplate> SINGLETON_REST = new HashMap<>(10);
+    private static final Map<String, XgrpcRestTemplate> SINGLETON_REST = new HashMap<>(10);
     
-    private static final Map<String, NacosAsyncRestTemplate> SINGLETON_ASYNC_REST = new HashMap<>(
+    private static final Map<String, XgrpcAsyncRestTemplate> SINGLETON_ASYNC_REST = new HashMap<>(
             10);
     
     private static final AtomicBoolean ALREADY_SHUTDOWN = new AtomicBoolean(false);
@@ -47,50 +47,50 @@ public final class HttpClientBeanHolder {
         ThreadUtils.addShutdownHook(HttpClientBeanHolder::shutdown);
     }
     
-    public static NacosRestTemplate getNacosRestTemplate(Logger logger) {
-        return getNacosRestTemplate(new DefaultHttpClientFactory(logger));
+    public static XgrpcRestTemplate getXgrpcRestTemplate(Logger logger) {
+        return getXgrpcRestTemplate(new DefaultHttpClientFactory(logger));
     }
     
-    public static NacosRestTemplate getNacosRestTemplate(HttpClientFactory httpClientFactory) {
+    public static XgrpcRestTemplate getXgrpcRestTemplate(HttpClientFactory httpClientFactory) {
         if (httpClientFactory == null) {
             throw new NullPointerException("httpClientFactory is null");
         }
         String factoryName = httpClientFactory.getClass().getName();
-        NacosRestTemplate nacosRestTemplate = SINGLETON_REST.get(factoryName);
-        if (nacosRestTemplate == null) {
+        XgrpcRestTemplate xgrpcRestTemplate = SINGLETON_REST.get(factoryName);
+        if (xgrpcRestTemplate == null) {
             synchronized (SINGLETON_REST) {
-                nacosRestTemplate = SINGLETON_REST.get(factoryName);
-                if (nacosRestTemplate != null) {
-                    return nacosRestTemplate;
+                xgrpcRestTemplate = SINGLETON_REST.get(factoryName);
+                if (xgrpcRestTemplate != null) {
+                    return xgrpcRestTemplate;
                 }
-                nacosRestTemplate = httpClientFactory.createNacosRestTemplate();
-                SINGLETON_REST.put(factoryName, nacosRestTemplate);
+                xgrpcRestTemplate = httpClientFactory.createXgrpcRestTemplate();
+                SINGLETON_REST.put(factoryName, xgrpcRestTemplate);
             }
         }
-        return nacosRestTemplate;
+        return xgrpcRestTemplate;
     }
     
-    public static NacosAsyncRestTemplate getNacosAsyncRestTemplate(Logger logger) {
-        return getNacosAsyncRestTemplate(new DefaultHttpClientFactory(logger));
+    public static XgrpcAsyncRestTemplate getXgrpcAsyncRestTemplate(Logger logger) {
+        return getXgrpcAsyncRestTemplate(new DefaultHttpClientFactory(logger));
     }
     
-    public static NacosAsyncRestTemplate getNacosAsyncRestTemplate(HttpClientFactory httpClientFactory) {
+    public static XgrpcAsyncRestTemplate getXgrpcAsyncRestTemplate(HttpClientFactory httpClientFactory) {
         if (httpClientFactory == null) {
             throw new NullPointerException("httpClientFactory is null");
         }
         String factoryName = httpClientFactory.getClass().getName();
-        NacosAsyncRestTemplate nacosAsyncRestTemplate = SINGLETON_ASYNC_REST.get(factoryName);
-        if (nacosAsyncRestTemplate == null) {
+        XgrpcAsyncRestTemplate xgrpcAsyncRestTemplate = SINGLETON_ASYNC_REST.get(factoryName);
+        if (xgrpcAsyncRestTemplate == null) {
             synchronized (SINGLETON_ASYNC_REST) {
-                nacosAsyncRestTemplate = SINGLETON_ASYNC_REST.get(factoryName);
-                if (nacosAsyncRestTemplate != null) {
-                    return nacosAsyncRestTemplate;
+                xgrpcAsyncRestTemplate = SINGLETON_ASYNC_REST.get(factoryName);
+                if (xgrpcAsyncRestTemplate != null) {
+                    return xgrpcAsyncRestTemplate;
                 }
-                nacosAsyncRestTemplate = httpClientFactory.createNacosAsyncRestTemplate();
-                SINGLETON_ASYNC_REST.put(factoryName, nacosAsyncRestTemplate);
+                xgrpcAsyncRestTemplate = httpClientFactory.createXgrpcAsyncRestTemplate();
+                SINGLETON_ASYNC_REST.put(factoryName, xgrpcAsyncRestTemplate);
             }
         }
-        return nacosAsyncRestTemplate;
+        return xgrpcAsyncRestTemplate;
     }
     
     /**
@@ -116,8 +116,8 @@ public final class HttpClientBeanHolder {
      * @throws Exception ex
      */
     public static void shutdown(String className) throws Exception {
-        shutdownNacostSyncRest(className);
-        shutdownNacosAsyncRest(className);
+        shutdownXgrpcSyncRest(className);
+        shutdownXgrpcAsyncRest(className);
     }
     
     /**
@@ -126,10 +126,10 @@ public final class HttpClientBeanHolder {
      * @param className HttpClientFactory implement class name
      * @throws Exception ex
      */
-    public static void shutdownNacostSyncRest(String className) throws Exception {
-        final NacosRestTemplate nacosRestTemplate = SINGLETON_REST.get(className);
-        if (nacosRestTemplate != null) {
-            nacosRestTemplate.close();
+    public static void shutdownXgrpcSyncRest(String className) throws Exception {
+        final XgrpcRestTemplate xgrpcRestTemplate = SINGLETON_REST.get(className);
+        if (xgrpcRestTemplate != null) {
+            xgrpcRestTemplate.close();
             SINGLETON_REST.remove(className);
         }
     }
@@ -140,10 +140,10 @@ public final class HttpClientBeanHolder {
      * @param className HttpClientFactory implement class name
      * @throws Exception ex
      */
-    public static void shutdownNacosAsyncRest(String className) throws Exception {
-        final NacosAsyncRestTemplate nacosAsyncRestTemplate = SINGLETON_ASYNC_REST.get(className);
-        if (nacosAsyncRestTemplate != null) {
-            nacosAsyncRestTemplate.close();
+    public static void shutdownXgrpcAsyncRest(String className) throws Exception {
+        final XgrpcAsyncRestTemplate xgrpcAsyncRestTemplate = SINGLETON_ASYNC_REST.get(className);
+        if (xgrpcAsyncRestTemplate != null) {
+            xgrpcAsyncRestTemplate.close();
             SINGLETON_ASYNC_REST.remove(className);
         }
     }

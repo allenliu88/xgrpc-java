@@ -16,8 +16,10 @@
 
 package io.xgrpc.api.exception.runtime;
 
+import static io.xgrpc.api.common.Constants.Exception.COMMON_ERROR_CODE;
+
 /**
- * Nacos runtime exception.
+ * Xgrpc runtime exception.
  *
  * @author yangyi
  */
@@ -48,7 +50,11 @@ public class XgrpcRuntimeException extends RuntimeException {
         super(String.format(ERROR_MESSAGE_FORMAT, errCode, errMsg), throwable);
         this.errCode = errCode;
     }
-    
+
+    public XgrpcRuntimeException(Throwable cause) {
+        this(COMMON_ERROR_CODE, cause);
+    }
+
     public int getErrCode() {
         return errCode;
     }

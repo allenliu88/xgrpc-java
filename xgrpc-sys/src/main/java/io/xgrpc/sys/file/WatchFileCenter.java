@@ -56,7 +56,7 @@ public class WatchFileCenter {
     /**
      * Maximum number of monitored file directories.
      */
-    private static final int MAX_WATCH_FILE_JOB = Integer.getInteger("nacos.watch-file.max-dirs", 16);
+    private static final int MAX_WATCH_FILE_JOB = Integer.getInteger("xgrpc.watch-file.max-dirs", 16);
     
     private static final Map<String, WatchDirJob> MANAGER = new HashMap<String, WatchDirJob>(MAX_WATCH_FILE_JOB);
     

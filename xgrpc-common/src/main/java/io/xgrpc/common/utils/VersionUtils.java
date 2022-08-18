@@ -37,16 +37,16 @@ public class VersionUtils {
      */
     public static final String VERSION_PLACEHOLDER = "${project.version}";
     
-    private static final String NACOS_VERSION_FILE = "nacos-version.txt";
+    private static final String XGRPC_VERSION_FILE = "xgrpc-version.txt";
     
     static {
-        try (InputStream in = VersionUtils.class.getClassLoader().getResourceAsStream(NACOS_VERSION_FILE)) {
+        try (InputStream in = VersionUtils.class.getClassLoader().getResourceAsStream(XGRPC_VERSION_FILE)) {
             Properties props = new Properties();
             props.load(in);
             String val = props.getProperty("version");
             if (val != null && !VERSION_PLACEHOLDER.equals(val)) {
                 version = val;
-                clientVersion = "Nacos-Java-Client:v" + VersionUtils.version;
+                clientVersion = "Xgrpc-Java-Client:v" + VersionUtils.version;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -62,7 +62,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
     @Override
     public void init(Class<? extends Event> type, int bufferSize) {
         setDaemon(true);
-        setName("nacos.publisher-" + type.getName());
+        setName("xgrpc.publisher-" + type.getName());
         this.eventType = type;
         this.queueMaxSize = bufferSize;
         this.queue = new ArrayBlockingQueue<>(bufferSize);

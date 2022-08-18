@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * remote abilities of nacos server.
+ * remote abilities of xgrpc server.
  *
  * @author liuzunfei
  * @version $Id: ServerRemoteAbility.java, v 0.1 2021年01月24日 00:09 AM liuzunfei Exp $

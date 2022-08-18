@@ -150,5 +150,7 @@ public class Constants {
         public static final int DESERIALIZE_ERROR_CODE = 101;
 
         public static final int SERIALIZE_ERROR_CODE = 100;
+
+        public static final int COMMON_ERROR_CODE = 99;
     }
 }

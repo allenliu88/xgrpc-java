@@ -19,11 +19,11 @@ package io.xgrpc.core.ability;
 import java.util.Collection;
 import java.util.HashSet;
 
-import io.xgrpc.common.spi.NacosServiceLoader;
+import io.xgrpc.common.spi.XgrpcServiceLoader;
 import io.xgrpc.core.utils.Loggers;
 
 /**
- * Nacos server ability initializer holder.
+ * Xgrpc server ability initializer holder.
  *
  * @author xiweng.yy
  */
@@ -35,7 +35,7 @@ public class ServerAbilityInitializerHolder {
     
     private ServerAbilityInitializerHolder() {
         initializers = new HashSet<>();
-        for (ServerAbilityInitializer each : NacosServiceLoader.load(ServerAbilityInitializer.class)) {
+        for (ServerAbilityInitializer each : XgrpcServiceLoader.load(ServerAbilityInitializer.class)) {
             Loggers.CORE.info("Load {} for ServerAbilityInitializer", each.getClass().getCanonicalName());
             initializers.add(each);
         }

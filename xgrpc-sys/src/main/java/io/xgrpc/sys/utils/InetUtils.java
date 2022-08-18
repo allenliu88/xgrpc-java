@@ -17,7 +17,7 @@
 package io.xgrpc.sys.utils;
 
 import static io.xgrpc.sys.env.Constants.IP_ADDRESS;
-import static io.xgrpc.sys.env.Constants.NACOS_SERVER_IP;
+import static io.xgrpc.sys.env.Constants.XGRPC_SERVER_IP;
 import static io.xgrpc.sys.env.Constants.PREFER_HOSTNAME_OVER_IP;
 import static io.xgrpc.sys.env.Constants.SYSTEM_PREFER_HOSTNAME_OVER_IP;
 import static io.xgrpc.sys.env.Constants.USE_ONLY_SITE_INTERFACES;
@@ -49,7 +49,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Network card operation tool class.
  *
- * @author Nacos
+ * @author XGRPC
  */
 public class InetUtils {
     
@@ -97,7 +97,7 @@ public class InetUtils {
      */
     private static void refreshIp() {
         
-        String tmpSelfIp = getNacosIp();
+        String tmpSelfIp = getXgrpcIp();
         
         if (StringUtils.isBlank(tmpSelfIp)) {
             tmpSelfIp = getPreferHostnameOverIP();
@@ -126,23 +126,23 @@ public class InetUtils {
     
     /**
      * Get ip address from environment
-     * System property nacos.server.ip
-     * Spring property nacos.inetutils.ip-address.
+     * System property xgrpc.server.ip
+     * Spring property xgrpc.inetutils.ip-address.
      *
      * @return ip address
      */
-    private static String getNacosIp() {
-        String nacosIp = System.getProperty(NACOS_SERVER_IP);
-        if (StringUtils.isBlank(nacosIp)) {
-            nacosIp = EnvUtil.getProperty(IP_ADDRESS);
+    private static String getXgrpcIp() {
+        String xgrpcIp = System.getProperty(XGRPC_SERVER_IP);
+        if (StringUtils.isBlank(xgrpcIp)) {
+            xgrpcIp = EnvUtil.getProperty(IP_ADDRESS);
         }
-        if (!StringUtils.isBlank(nacosIp)) {
-            if (!(InternetAddressUtil.isIP(nacosIp) || InternetAddressUtil.isDomain(nacosIp))) {
-                throw new RuntimeException("nacos address " + nacosIp + " is not ip");
+        if (!StringUtils.isBlank(xgrpcIp)) {
+            if (!(InternetAddressUtil.isIP(xgrpcIp) || InternetAddressUtil.isDomain(xgrpcIp))) {
+                throw new RuntimeException("xgrpc address " + xgrpcIp + " is not ip");
             }
         }
         
-        return nacosIp;
+        return xgrpcIp;
     }
     
     /**
@@ -263,7 +263,7 @@ public class InetUtils {
     }
     
     /**
-     * {@link io.xgrpc.core.cluster.ServerMemberManager} is listener.
+     * is listener.
      */
     @SuppressWarnings({"PMD.ClassNamingShouldBeCamelRule", "checkstyle:AbbreviationAsWordInName"})
     public static class IPChangeEvent extends SlowEvent {

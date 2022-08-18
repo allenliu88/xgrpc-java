@@ -36,6 +36,7 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/listener/Subscriber.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/ThreadFactoryBuilder.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/AbstractFileResolvingResource.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/ServiceLoaderUtils.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/param/Header.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/request/DefaultAsyncHttpClientRequest.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/SlowEvent.java
@@ -45,7 +46,6 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/tls/TlsFileWatcher.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/WritableResource.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/constant/HttpHeaderConsts.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/spi/NacosServiceLoader.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/ProtocolResolver.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/exception/ConnectionAlreadyClosedException.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/EventPublisherFactory.java
@@ -73,6 +73,7 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/client/ServerRequestHandler.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/UuidUtils.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/client/ConnectionEventListener.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/AbstractXgrpcRestTemplate.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/Event.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/tls/TlsHelper.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/exception/RemoteException.java
@@ -87,11 +88,9 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/ExceptionUtil.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/handler/RestResultResponseHandler.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/classreading/ClassReader.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/NacosRestTemplate.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/InputStreamResource.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/AbstractApacheHttpClientFactory.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/constant/RequestUrlConstants.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/NacosAsyncRestTemplate.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/ShardedEventPublisher.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/CollectionUtils.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/AbstractResource.java
@@ -99,6 +98,7 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/AntPathMatcher.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/PathMatchingResourcePatternResolver.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/param/MediaType.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/spi/XgrpcServiceLoader.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/model/core/IResultCode.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/tls/SelfTrustManager.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/resource/UrlResource.java
@@ -121,6 +121,8 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/PayloadRegistry.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/exception/ConnectionBusyException.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/handler/AbstractResponseHandler.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/XgrpcAsyncRestTemplate.java
+/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/XgrpcRestTemplate.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/notify/EventPublisher.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/ClassUtils.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/VersionUtils.java
@@ -129,8 +131,6 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/utils/HttpMethod.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/util/PathMatcher.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/util/NestedExceptionUtils.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/event/ServerConfigChangeEvent.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/http/client/AbstractNacosRestTemplate.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/remote/client/RpcClient.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/executor/ExecutorFactory.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-common/src/main/java/io/xgrpc/common/packagescan/util/ResourceUtils.java

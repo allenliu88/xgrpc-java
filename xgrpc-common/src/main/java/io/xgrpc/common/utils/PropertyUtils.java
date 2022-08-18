@@ -23,9 +23,9 @@ package io.xgrpc.common.utils;
  */
 public class PropertyUtils {
     
-    private static final String PROCESSORS_ENV_NAME = "NACOS_COMMON_PROCESSORS";
+    private static final String PROCESSORS_ENV_NAME = "XGRPC_COMMON_PROCESSORS";
     
-    private static final String PROCESSORS_PROP_NAME = "nacos.common.processors";
+    private static final String PROCESSORS_PROP_NAME = "xgrpc.common.processors";
     
     /**
      * Get system env or property value.

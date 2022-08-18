@@ -29,7 +29,7 @@ import io.xgrpc.api.exception.runtime.XgrpcRuntimeException;
 import io.xgrpc.common.JustForTest;
 import io.xgrpc.common.notify.listener.SmartSubscriber;
 import io.xgrpc.common.notify.listener.Subscriber;
-import io.xgrpc.common.spi.NacosServiceLoader;
+import io.xgrpc.common.spi.XgrpcServiceLoader;
 import io.xgrpc.common.utils.ClassUtils;
 import io.xgrpc.common.utils.MapUtil;
 import io.xgrpc.common.utils.ThreadUtils;
@@ -68,14 +68,14 @@ public class NotifyCenter {
     static {
         // Internal ArrayBlockingQueue buffer size. For applications with high write throughput,
         // this value needs to be increased appropriately. default value is 16384
-        String ringBufferSizeProperty = "nacos.core.notify.ring-buffer-size";
+        String ringBufferSizeProperty = "xgrpc.core.notify.ring-buffer-size";
         ringBufferSize = Integer.getInteger(ringBufferSizeProperty, 16384);
         
         // The size of the public publisher's message staging queue buffer
-        String shareBufferSizeProperty = "nacos.core.notify.share-buffer-size";
+        String shareBufferSizeProperty = "xgrpc.core.notify.share-buffer-size";
         shareBufferSize = Integer.getInteger(shareBufferSizeProperty, 1024);
         
-        final Collection<EventPublisher> publishers = NacosServiceLoader.load(EventPublisher.class);
+        final Collection<EventPublisher> publishers = XgrpcServiceLoader.load(EventPublisher.class);
         Iterator<EventPublisher> iterator = publishers.iterator();
         
         if (iterator.hasNext()) {

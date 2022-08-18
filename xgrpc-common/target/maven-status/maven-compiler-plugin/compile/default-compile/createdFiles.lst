@@ -3,6 +3,7 @@ io/xgrpc/common/remote/client/ServerListFactory.class
 io/xgrpc/common/model/RestResult$ResResultBuilder.class
 io/xgrpc/common/utils/ByteUtils.class
 io/xgrpc/common/utils/ResourceUtils.class
+io/xgrpc/common/spi/XgrpcServiceLoader.class
 io/xgrpc/common/http/DefaultHttpClientFactory.class
 io/xgrpc/common/JustForTest.class
 io/xgrpc/common/utils/ArrayUtils.class
@@ -27,10 +28,8 @@ io/xgrpc/common/utils/PropertyUtils.class
 io/xgrpc/common/http/client/request/DefaultAsyncHttpClientRequest.class
 io/xgrpc/common/utils/AbstractAssert.class
 io/xgrpc/common/packagescan/resource/InputStreamSource.class
-io/xgrpc/common/http/client/NacosAsyncRestTemplate.class
 io/xgrpc/common/tls/TlsSystemConfig.class
 io/xgrpc/common/model/RestResult.class
-io/xgrpc/common/http/client/NacosRestTemplate.class
 io/xgrpc/common/utils/VersionUtils.class
 io/xgrpc/common/http/client/request/DefaultHttpClientRequest.class
 io/xgrpc/common/model/core/IResultCode.class
@@ -38,6 +37,7 @@ io/xgrpc/common/executor/ExecutorFactory$Managed.class
 io/xgrpc/common/notify/NotifyCenter.class
 io/xgrpc/common/packagescan/resource/AntPathMatcher.class
 io/xgrpc/common/utils/MapUtil.class
+io/xgrpc/common/http/client/XgrpcRestTemplate.class
 io/xgrpc/common/notify/EventPublisherFactory.class
 io/xgrpc/common/remote/client/RpcClient$ConnectionEvent.class
 io/xgrpc/common/tls/TlsFileWatcher.class
@@ -48,6 +48,7 @@ io/xgrpc/common/remote/client/ServerRequestHandler.class
 io/xgrpc/common/constant/RequestUrlConstants.class
 io/xgrpc/common/remote/client/grpc/GrpcConnection.class
 io/xgrpc/common/remote/client/RpcClient$ServerInfo.class
+io/xgrpc/common/http/client/XgrpcAsyncRestTemplate.class
 io/xgrpc/common/remote/exception/ConnectionBusyException.class
 io/xgrpc/common/http/Callback.class
 io/xgrpc/common/remote/client/grpc/GrpcUtils$PlainRequest.class
@@ -60,7 +61,6 @@ io/xgrpc/common/remote/client/RpcClient.class
 io/xgrpc/common/remote/client/grpc/GrpcClient$1.class
 io/xgrpc/common/http/client/response/JdkHttpClientResponse.class
 io/xgrpc/common/packagescan/resource/ProtocolResolver.class
-io/xgrpc/common/spi/NacosServiceLoader.class
 io/xgrpc/common/model/RestResultUtils.class
 io/xgrpc/common/remote/client/RpcClient$ReconnectContext.class
 io/xgrpc/common/http/BaseHttpMethod$HttpDeleteWithEntity.class
@@ -104,7 +104,6 @@ io/xgrpc/common/packagescan/resource/AbstractResource.class
 io/xgrpc/common/utils/UuidUtils.class
 io/xgrpc/common/packagescan/resource/ResourceLoader.class
 io/xgrpc/common/packagescan/resource/FileSystemResource.class
-io/xgrpc/common/event/ServerConfigChangeEvent.class
 io/xgrpc/common/cache/decorators/LruCache.class
 io/xgrpc/common/packagescan/classreading/ClassReader.class
 io/xgrpc/common/packagescan/resource/PathMatchingResourcePatternResolver$VfsResourceMatchingDelegate.class
@@ -162,7 +161,6 @@ io/xgrpc/common/http/client/handler/BeanResponseHandler.class
 io/xgrpc/common/http/client/request/AsyncHttpClientRequest.class
 io/xgrpc/common/http/AbstractHttpClientFactory.class
 io/xgrpc/common/http/BaseHttpMethod$1.class
-io/xgrpc/common/http/client/AbstractNacosRestTemplate.class
 io/xgrpc/common/http/client/handler/RestResultResponseHandler.class
 io/xgrpc/common/utils/AbstractObjectUtils.class
 io/xgrpc/common/notify/listener/SmartSubscriber.class
@@ -170,12 +168,14 @@ io/xgrpc/common/model/RequestHttpEntity.class
 io/xgrpc/common/packagescan/resource/AntPathMatcher$PathSeparatorPatternCache.class
 io/xgrpc/common/http/client/response/HttpClientResponse.class
 io/xgrpc/common/http/HttpRestResult.class
+io/xgrpc/common/http/client/AbstractXgrpcRestTemplate.class
 io/xgrpc/common/cache/decorators/LruCache$1.class
 io/xgrpc/common/remote/client/grpc/GrpcConnection$1.class
 io/xgrpc/common/cache/decorators/SynchronizedCache.class
 io/xgrpc/common/http/AbstractApacheHttpClientFactory.class
 io/xgrpc/common/cache/Cache.class
 io/xgrpc/common/http/client/request/HttpClientRequest.class
+io/xgrpc/common/utils/ServiceLoaderUtils.class
 io/xgrpc/common/packagescan/resource/ContextResource.class
 io/xgrpc/common/utils/ConvertUtils.class
 io/xgrpc/common/utils/Observer.class

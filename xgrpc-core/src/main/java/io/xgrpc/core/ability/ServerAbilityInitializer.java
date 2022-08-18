@@ -20,7 +20,7 @@ import io.xgrpc.api.ability.ServerAbilities;
 import io.xgrpc.api.ability.initializer.AbilityInitializer;
 
 /**
- * Nacos server ability initializer.
+ * Xgrpc server ability initializer.
  *
  * @author xiweng.yy
  */

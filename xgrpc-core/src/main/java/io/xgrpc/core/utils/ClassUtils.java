@@ -18,8 +18,6 @@ package io.xgrpc.core.utils;
 
 import java.util.Objects;
 
-import org.springframework.core.ResolvableType;
-
 /**
  * class operation utils.
  *
@@ -27,15 +25,6 @@ import org.springframework.core.ResolvableType;
  */
 @SuppressWarnings("all")
 public final class ClassUtils {
-    
-    public static <T> Class<T> resolveGenericType(Class<?> declaredClass) {
-        return (Class<T>) ResolvableType.forClass(declaredClass).getSuperType().resolveGeneric(0);
-    }
-    
-    public static <T> Class<T> resolveGenericTypeByInterface(Class<?> declaredClass) {
-        return (Class<T>) ResolvableType.forClass(declaredClass).getInterfaces()[0].resolveGeneric(0);
-    }
-    
     public static Class findClassByName(String className) {
         try {
             return Class.forName(className);

@@ -19,7 +19,7 @@ package io.xgrpc.api.exception.runtime;
 import static io.xgrpc.api.common.Constants.Exception.SERIALIZE_ERROR_CODE;
 
 /**
- * Nacos serialization exception.
+ * Xgrpc serialization exception.
  *
  * @author yangyi
  */
@@ -27,9 +27,9 @@ public class XgrpcSerializationException extends XgrpcRuntimeException {
     
     private static final long serialVersionUID = -4308536346316915612L;
     
-    private static final String DEFAULT_MSG = "Nacos serialize failed. ";
+    private static final String DEFAULT_MSG = "Xgrpc serialize failed. ";
     
-    private static final String MSG_FOR_SPECIFIED_CLASS = "Nacos serialize for class [%s] failed. ";
+    private static final String MSG_FOR_SPECIFIED_CLASS = "Xgrpc serialize for class [%s] failed. ";
     
     private Class<?> serializedClass;
     

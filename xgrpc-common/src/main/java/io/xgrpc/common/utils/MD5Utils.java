@@ -22,7 +22,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * MD5 util.
  *
- * @author nacos
+ * @author xgrpc
  */
 @SuppressWarnings("PMD.ClassNamingShouldBeCamelRule")
 public class MD5Utils {

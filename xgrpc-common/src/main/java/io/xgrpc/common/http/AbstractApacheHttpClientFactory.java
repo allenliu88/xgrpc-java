@@ -16,7 +16,7 @@
 
 package io.xgrpc.common.http;
 
-import io.xgrpc.common.http.client.NacosRestTemplate;
+import io.xgrpc.common.http.client.XgrpcRestTemplate;
 import io.xgrpc.common.http.client.request.DefaultHttpClientRequest;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClients;
@@ -30,10 +30,10 @@ import org.apache.http.protocol.RequestContent;
 public abstract class AbstractApacheHttpClientFactory extends AbstractHttpClientFactory {
     
     @Override
-    public final NacosRestTemplate createNacosRestTemplate() {
+    public final XgrpcRestTemplate createXgrpcRestTemplate() {
         final HttpClientConfig originalRequestConfig = buildHttpClientConfig();
         final RequestConfig defaultConfig = getRequestConfig();
-        return new NacosRestTemplate(assignLogger(), new DefaultHttpClientRequest(
+        return new XgrpcRestTemplate(assignLogger(), new DefaultHttpClientRequest(
                 HttpClients.custom()
                         .addInterceptorLast(new RequestContent(true))
                         .setDefaultRequestConfig(defaultConfig)

@@ -19,7 +19,7 @@ package io.xgrpc.api.remote.ability;
 import java.io.Serializable;
 
 /**
- * remote abilities of nacos client.
+ * remote abilities of xgrpc client.
  *
  * @author liuzunfei
  * @version $Id: ClientRemoteAbility.java, v 0.1 2021年01月24日 00:09 AM liuzunfei Exp $

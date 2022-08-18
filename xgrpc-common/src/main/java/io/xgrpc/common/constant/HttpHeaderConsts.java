@@ -17,7 +17,7 @@
 package io.xgrpc.common.constant;
 
 /**
- * Nacos header constants.
+ * Xgrpc header constants.
  *
  * @author ly
  */

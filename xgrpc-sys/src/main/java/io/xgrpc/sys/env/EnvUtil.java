@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
@@ -28,9 +27,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.xgrpc.common.JustForTest;
 import io.xgrpc.common.utils.ConvertUtils;
 import io.xgrpc.common.utils.IoUtils;
@@ -38,9 +37,6 @@ import io.xgrpc.common.utils.StringUtils;
 import io.xgrpc.common.utils.ThreadUtils;
 import io.xgrpc.sys.utils.DiskUtils;
 import io.xgrpc.sys.utils.InetUtils;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
 
 /**
  * Its own configuration information manipulation tool class.
@@ -58,9 +54,9 @@ public class EnvUtil {
     public static final String FUNCTION_MODE_NAMING = "naming";
     
     /**
-     * The key of nacos home.
+     * The key of xgrpc home.
      */
-    public static final String NACOS_HOME_KEY = "nacos.home";
+    public static final String XGRPC_HOME_KEY = "xgrpc.home";
     
     private static volatile String localAddress = "";
     
@@ -78,85 +74,73 @@ public class EnvUtil {
     
     private static final int DEFAULT_SERVER_PORT = 8848;
     
-    private static final String DEFAULT_WEB_CONTEXT_PATH = "/nacos";
+    private static final String DEFAULT_WEB_CONTEXT_PATH = "/xgrpc";
     
-    private static final String MEMBER_LIST_PROPERTY = "nacos.member.list";
+    private static final String MEMBER_LIST_PROPERTY = "xgrpc.member.list";
     
-    private static final String NACOS_HOME_PROPERTY = "user.home";
-    
-    private static final String CUSTOM_CONFIG_LOCATION_PROPERTY = "spring.config.additional-location";
-    
-    private static final String DEFAULT_CONFIG_LOCATION  = "application.properties";
-    
-    private static final String DEFAULT_RESOURCE_PATH = "/application.properties";
+    private static final String XGRPC_HOME_PROPERTY = "user.home";
     
     private static final String DEFAULT_ADDITIONAL_PATH = "conf";
     
     private static final String DEFAULT_ADDITIONAL_FILE = "cluster.conf";
     
-    private static final String NACOS_HOME_ADDITIONAL_FILEPATH = "nacos";
+    private static final String XGRPC_HOME_ADDITIONAL_FILEPATH = "xgrpc";
     
-    private static final String NACOS_TEMP_DIR_1 = "data";
+    private static final String XGRPC_TEMP_DIR_1 = "data";
     
-    private static final String NACOS_TEMP_DIR_2 = "tmp";
+    private static final String XGRPC_TEMP_DIR_2 = "tmp";
     
     @JustForTest
     private static String confPath = "";
     
     @JustForTest
-    private static String nacosHomePath = null;
-    
-    private static ConfigurableEnvironment environment;
-    
-    public static ConfigurableEnvironment getEnvironment() {
-        return environment;
-    }
-    
-    public static void setEnvironment(ConfigurableEnvironment environment) {
-        EnvUtil.environment = environment;
-    }
-    
-    public static boolean containsProperty(String key) {
-        return environment.containsProperty(key);
-    }
+    private static String xgrpcHomePath = null;
     
     public static String getProperty(String key) {
-        return environment.getProperty(key);
+        String value = System.getProperty(key);
+        if (StringUtils.isBlank(value)) {
+            value = System.getenv(key);
+        }
+
+        return value;
     }
     
     public static String getProperty(String key, String defaultValue) {
-        return environment.getProperty(key, defaultValue);
+        String value = getProperty(key);
+
+        if (StringUtils.isBlank(value)) {
+            value = defaultValue;
+        }
+
+        return value;
     }
     
     public static <T> T getProperty(String key, Class<T> targetType) {
-        return environment.getProperty(key, targetType);
+        String value = getProperty(key);
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(value, targetType);
+        } catch (Exception ex) {
+            //
+            return null;
+        }
     }
     
     public static <T> T getProperty(String key, Class<T> targetType, T defaultValue) {
-        return environment.getProperty(key, targetType, defaultValue);
+        T ret = getProperty(key, targetType);
+
+        return ret != null ? ret : defaultValue;
     }
-    
-    public static String getRequiredProperty(String key) throws IllegalStateException {
-        return environment.getRequiredProperty(key);
-    }
-    
-    public static <T> T getRequiredProperty(String key, Class<T> targetType) throws IllegalStateException {
-        return environment.getRequiredProperty(key, targetType);
-    }
-    
-    public static String resolvePlaceholders(String text) {
-        return environment.resolvePlaceholders(text);
-    }
-    
-    public static String resolveRequiredPlaceholders(String text) throws IllegalArgumentException {
-        return environment.resolveRequiredPlaceholders(text);
-    }
-    
+
     public static List<String> getPropertyList(String key) {
         List<String> valueList = new ArrayList<>();
         
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            String value = environment.getProperty(key + "[" + i + "]");
+            String value = System.getProperty(key + "[" + i + "]");
             if (StringUtils.isBlank(value)) {
                 break;
             }
@@ -209,7 +193,7 @@ public class EnvUtil {
     }
     
     /**
-     * Whether open upgrade from 1.X nacos server. Might effect `doubleWrite` and `Old raft`.
+     * Whether open upgrade from 1.X xgrpc server. Might effect `doubleWrite` and `Old raft`.
      *
      * @since 2.1.0
      * @return {@code true} open upgrade feature, otherwise {@code false}, default {@code false}
@@ -239,30 +223,30 @@ public class EnvUtil {
         return functionModeType;
     }
     
-    private static String nacosTmpDir;
+    private static String xgrpcTmpDir;
     
-    public static String getNacosTmpDir() {
-        if (StringUtils.isBlank(nacosTmpDir)) {
-            nacosTmpDir = Paths.get(getNacosHome(), NACOS_TEMP_DIR_1, NACOS_TEMP_DIR_2).toString();
+    public static String getXgrpcTmpDir() {
+        if (StringUtils.isBlank(xgrpcTmpDir)) {
+            xgrpcTmpDir = Paths.get(getXgrpcHome(), XGRPC_TEMP_DIR_1, XGRPC_TEMP_DIR_2).toString();
         }
-        return nacosTmpDir;
+        return xgrpcTmpDir;
     }
     
-    public static String getNacosHome() {
-        if (StringUtils.isBlank(nacosHomePath)) {
-            String nacosHome = System.getProperty(NACOS_HOME_KEY);
-            if (StringUtils.isBlank(nacosHome)) {
-                nacosHome = Paths.get(System.getProperty(NACOS_HOME_PROPERTY), NACOS_HOME_ADDITIONAL_FILEPATH).toString();
+    public static String getXgrpcHome() {
+        if (StringUtils.isBlank(xgrpcHomePath)) {
+            String xgrpcHome = System.getProperty(XGRPC_HOME_KEY);
+            if (StringUtils.isBlank(xgrpcHome)) {
+                xgrpcHome = Paths.get(System.getProperty(XGRPC_HOME_PROPERTY), XGRPC_HOME_ADDITIONAL_FILEPATH).toString();
             }
-            return nacosHome;
+            return xgrpcHome;
         }
         // test-first
-        return nacosHomePath;
+        return xgrpcHomePath;
     }
     
     @JustForTest
-    public static void setNacosHomePath(String nacosHomePath) {
-        EnvUtil.nacosHomePath = nacosHomePath;
+    public static void setXgrpcHomePath(String xgrpcHomePath) {
+        EnvUtil.xgrpcHomePath = xgrpcHomePath;
     }
     
     public static List<String> getIPsBySystemEnv(String key) {
@@ -294,7 +278,7 @@ public class EnvUtil {
         if (StringUtils.isNotBlank(EnvUtil.confPath)) {
             return EnvUtil.confPath;
         }
-        EnvUtil.confPath = Paths.get(getNacosHome(), DEFAULT_ADDITIONAL_PATH).toString();
+        EnvUtil.confPath = Paths.get(getXgrpcHome(), DEFAULT_ADDITIONAL_PATH).toString();
         return confPath;
     }
     
@@ -303,7 +287,7 @@ public class EnvUtil {
     }
     
     public static String getClusterConfFilePath() {
-        return Paths.get(getNacosHome(), DEFAULT_ADDITIONAL_PATH, DEFAULT_ADDITIONAL_FILE).toString();
+        return Paths.get(getXgrpcHome(), DEFAULT_ADDITIONAL_PATH, DEFAULT_ADDITIONAL_FILE).toString();
     }
     
     /**
@@ -368,63 +352,19 @@ public class EnvUtil {
     }
     
     public static String getMemberList() {
-        String val;
-        if (environment == null) {
-            val = System.getenv(MEMBER_LIST_PROPERTY);
-            if (StringUtils.isBlank(val)) {
-                val = System.getProperty(MEMBER_LIST_PROPERTY);
-            }
-        } else {
-            val = getProperty(MEMBER_LIST_PROPERTY);
+        String val = System.getenv(MEMBER_LIST_PROPERTY);
+        if (StringUtils.isBlank(val)) {
+            val = System.getProperty(MEMBER_LIST_PROPERTY);
         }
+
         return val;
-    }
-    
-    /**
-     * load resource to map.
-     *
-     * @param resource resource
-     * @return Map&lt;String, Object&gt;
-     * @throws IOException IOException
-     */
-    public static Map<String, ?> loadProperties(Resource resource) throws IOException {
-        return new OriginTrackedPropertiesLoader(resource).load();
-    }
-    
-    public static Resource getApplicationConfFileResource() {
-        Resource customResource = getCustomFileResource();
-        return customResource == null ? getDefaultResource() : customResource;
-    }
-    
-    private static Resource getCustomFileResource() {
-        String path = getProperty(CUSTOM_CONFIG_LOCATION_PROPERTY);
-        if (StringUtils.isNotBlank(path) && path.contains(FILE_PREFIX)) {
-            String[] paths = path.split(",", -1);
-            path = paths[paths.length - 1].substring(FILE_PREFIX.length());
-            return getRelativePathResource(path, DEFAULT_CONFIG_LOCATION);
-        }
-        return null;
-    }
-    
-    private static Resource getRelativePathResource(String parentPath, String path) {
-        try {
-            InputStream inputStream = new FileInputStream(Paths.get(parentPath, path).toFile());
-            return new InputStreamResource(inputStream);
-        } catch (Exception ignore) {
-        }
-        return null;
-    }
-    
-    private static Resource getDefaultResource() {
-        InputStream inputStream = EnvUtil.class.getResourceAsStream(DEFAULT_RESOURCE_PATH);
-        return new InputStreamResource(inputStream);
     }
     
     /**
      * Get available processor numbers from environment.
      *
      * <p>
-     *     If there are setting of {@code nacos.core.sys.basic.processors} in config/JVM/system, use it.
+     *     If there are setting of {@code xgrpc.core.sys.basic.processors} in config/JVM/system, use it.
      *     If no setting, use the one time {@code ThreadUtils.getSuitableThreadCount()}.
      * </p>
      *

@@ -24,8 +24,8 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 
-import io.xgrpc.common.http.client.NacosAsyncRestTemplate;
-import io.xgrpc.common.http.client.NacosRestTemplate;
+import io.xgrpc.common.http.client.XgrpcAsyncRestTemplate;
+import io.xgrpc.common.http.client.XgrpcRestTemplate;
 import io.xgrpc.common.http.client.request.DefaultAsyncHttpClientRequest;
 import io.xgrpc.common.http.client.request.JdkHttpClientRequest;
 import io.xgrpc.common.tls.SelfHostnameVerifier;
@@ -59,7 +59,7 @@ import org.slf4j.Logger;
 public abstract class AbstractHttpClientFactory implements HttpClientFactory {
     
     @Override
-    public NacosRestTemplate createNacosRestTemplate() {
+    public XgrpcRestTemplate createXgrpcRestTemplate() {
         HttpClientConfig httpClientConfig = buildHttpClientConfig();
         final JdkHttpClientRequest clientRequest = new JdkHttpClientRequest(httpClientConfig);
         
@@ -69,15 +69,15 @@ public abstract class AbstractHttpClientFactory implements HttpClientFactory {
             clientRequest.replaceSSLHostnameVerifier(hostnameVerifier);
         }, filePath -> clientRequest.setSSLContext(loadSSLContext()));
         
-        return new NacosRestTemplate(assignLogger(), clientRequest);
+        return new XgrpcRestTemplate(assignLogger(), clientRequest);
     }
     
     @Override
-    public NacosAsyncRestTemplate createNacosAsyncRestTemplate() {
+    public XgrpcAsyncRestTemplate createXgrpcAsyncRestTemplate() {
         final HttpClientConfig originalRequestConfig = buildHttpClientConfig();
         final DefaultConnectingIOReactor ioreactor = getIoReactor();
         final RequestConfig defaultConfig = getRequestConfig();
-        return new NacosAsyncRestTemplate(assignLogger(), new DefaultAsyncHttpClientRequest(
+        return new XgrpcAsyncRestTemplate(assignLogger(), new DefaultAsyncHttpClientRequest(
                 HttpAsyncClients.custom()
                         .addInterceptorLast(new RequestContent(true))
                         .setDefaultIOReactorConfig(getIoReactorConfig())

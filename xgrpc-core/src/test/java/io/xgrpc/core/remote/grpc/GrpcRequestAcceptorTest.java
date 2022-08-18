@@ -26,25 +26,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
 
-import io.xgrpc.api.exception.XgrpcException;
-import io.xgrpc.api.grpc.auto.Payload;
-import io.xgrpc.api.grpc.auto.RequestGrpc;
-import io.xgrpc.api.naming.remote.request.InstanceRequest;
-import io.xgrpc.api.remote.request.HealthCheckRequest;
-import io.xgrpc.api.remote.request.RequestMeta;
-import io.xgrpc.api.remote.request.ServerCheckRequest;
-import io.xgrpc.api.remote.response.ErrorResponse;
-import io.xgrpc.api.remote.response.HealthCheckResponse;
-import io.xgrpc.api.remote.response.Response;
-import io.xgrpc.api.remote.response.ServerCheckResponse;
-import io.xgrpc.common.remote.PayloadRegistry;
-import io.xgrpc.common.remote.client.grpc.GrpcUtils;
-import io.xgrpc.core.remote.Connection;
-import io.xgrpc.core.remote.ConnectionManager;
-import io.xgrpc.core.remote.ConnectionMeta;
-import io.xgrpc.core.remote.RequestHandler;
-import io.xgrpc.core.remote.RequestHandlerRegistry;
-import io.xgrpc.sys.utils.ApplicationUtils;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Metadata;
@@ -55,6 +36,25 @@ import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
 import io.grpc.testing.GrpcCleanupRule;
+import io.xgrpc.api.exception.XgrpcException;
+import io.xgrpc.api.grpc.auto.Payload;
+import io.xgrpc.api.grpc.auto.RequestGrpc;
+import io.xgrpc.api.remote.request.HealthCheckRequest;
+import io.xgrpc.api.remote.request.Request;
+import io.xgrpc.api.remote.request.RequestMeta;
+import io.xgrpc.api.remote.request.ServerCheckRequest;
+import io.xgrpc.api.remote.response.ErrorResponse;
+import io.xgrpc.api.remote.response.HealthCheckResponse;
+import io.xgrpc.api.remote.response.Response;
+import io.xgrpc.api.remote.response.ServerCheckResponse;
+import io.xgrpc.common.remote.PayloadRegistry;
+import io.xgrpc.common.remote.client.grpc.GrpcUtils;
+import io.xgrpc.core.remote.connection.Connection;
+import io.xgrpc.core.remote.connection.ConnectionManager;
+import io.xgrpc.core.remote.connection.ConnectionMeta;
+import io.xgrpc.core.remote.handler.RequestHandler;
+import io.xgrpc.core.remote.registry.RequestHandlerRegistry;
+import io.xgrpc.sys.utils.ApplicationUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -381,6 +381,14 @@ public class GrpcRequestAcceptorTest {
         public HealthCheckResponse handle(HealthCheckRequest request, RequestMeta meta) throws XgrpcException {
             System.out.println("MockHandler get request: " + request + " meta: " + meta);
             return new HealthCheckResponse();
+        }
+    }
+
+    class InstanceRequest extends Request {
+
+        @Override
+        public String getModule() {
+            return "test-module";
         }
     }
 }

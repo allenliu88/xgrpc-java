@@ -18,12 +18,10 @@ package io.xgrpc.api.ability;
 
 import java.io.Serializable;
 
-import io.xgrpc.api.config.ability.ClientConfigAbility;
-import io.xgrpc.api.naming.ability.ClientNamingAbility;
 import io.xgrpc.api.remote.ability.ClientRemoteAbility;
 
 /**
- * abilities of nacos client.
+ * abilities of xgrpc client.
  *
  * @author liuzunfei
  * @version $Id: ClientAbilities.java, v 0.1 2021年01月24日 00:09 AM liuzunfei Exp $
@@ -34,31 +32,11 @@ public class ClientAbilities implements Serializable {
     
     private ClientRemoteAbility remoteAbility = new ClientRemoteAbility();
     
-    private ClientConfigAbility configAbility = new ClientConfigAbility();
-    
-    private ClientNamingAbility namingAbility = new ClientNamingAbility();
-    
     public ClientRemoteAbility getRemoteAbility() {
         return remoteAbility;
     }
     
     public void setRemoteAbility(ClientRemoteAbility remoteAbility) {
         this.remoteAbility = remoteAbility;
-    }
-    
-    public ClientConfigAbility getConfigAbility() {
-        return configAbility;
-    }
-    
-    public void setConfigAbility(ClientConfigAbility configAbility) {
-        this.configAbility = configAbility;
-    }
-    
-    public ClientNamingAbility getNamingAbility() {
-        return namingAbility;
-    }
-    
-    public void setNamingAbility(ClientNamingAbility namingAbility) {
-        this.namingAbility = namingAbility;
     }
 }

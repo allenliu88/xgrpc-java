@@ -19,12 +19,10 @@ package io.xgrpc.api.ability;
 import java.io.Serializable;
 import java.util.Objects;
 
-import io.xgrpc.api.config.ability.ServerConfigAbility;
-import io.xgrpc.api.naming.ability.ServerNamingAbility;
 import io.xgrpc.api.remote.ability.ServerRemoteAbility;
 
 /**
- * abilities of nacos server.
+ * abilities of xgrpc server.
  *
  * @author liuzunfei
  * @version $Id: ServerAbilities.java, v 0.1 2021年01月24日 00:09 AM liuzunfei Exp $
@@ -35,32 +33,12 @@ public class ServerAbilities implements Serializable {
     
     private ServerRemoteAbility remoteAbility = new ServerRemoteAbility();
     
-    private ServerConfigAbility configAbility = new ServerConfigAbility();
-    
-    private ServerNamingAbility namingAbility = new ServerNamingAbility();
-    
     public ServerRemoteAbility getRemoteAbility() {
         return remoteAbility;
     }
     
     public void setRemoteAbility(ServerRemoteAbility remoteAbility) {
         this.remoteAbility = remoteAbility;
-    }
-    
-    public ServerConfigAbility getConfigAbility() {
-        return configAbility;
-    }
-    
-    public void setConfigAbility(ServerConfigAbility configAbility) {
-        this.configAbility = configAbility;
-    }
-    
-    public ServerNamingAbility getNamingAbility() {
-        return namingAbility;
-    }
-    
-    public void setNamingAbility(ServerNamingAbility namingAbility) {
-        this.namingAbility = namingAbility;
     }
     
     @Override
@@ -72,12 +50,11 @@ public class ServerAbilities implements Serializable {
             return false;
         }
         ServerAbilities that = (ServerAbilities) o;
-        return Objects.equals(remoteAbility, that.remoteAbility) && Objects.equals(configAbility, that.configAbility)
-                && Objects.equals(namingAbility, that.namingAbility);
+        return Objects.equals(remoteAbility, that.remoteAbility);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(remoteAbility, configAbility, namingAbility);
+        return Objects.hash(remoteAbility);
     }
 }

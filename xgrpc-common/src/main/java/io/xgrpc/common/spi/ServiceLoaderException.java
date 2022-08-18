@@ -17,7 +17,7 @@
 package io.xgrpc.common.spi;
 
 /**
- * Nacos service loader exception.
+ * service loader exception.
  *
  * @author xiweng.yy
  */

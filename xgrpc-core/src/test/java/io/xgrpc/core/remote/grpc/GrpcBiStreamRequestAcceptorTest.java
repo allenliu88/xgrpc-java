@@ -17,7 +17,6 @@
 
 package io.xgrpc.core.remote.grpc;
 
-import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CHANNEL;
 import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_ID;
 import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_LOCAL_PORT;
 import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_REMOTE_IP;
@@ -26,18 +25,6 @@ import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_REMOTE_P
 import java.io.IOException;
 import java.util.UUID;
 
-import io.grpc.internal.ServerStream;
-import io.grpc.netty.shaded.io.netty.channel.Channel;
-import io.xgrpc.api.grpc.auto.BiRequestStreamGrpc;
-import io.xgrpc.api.grpc.auto.Payload;
-import io.xgrpc.api.remote.request.ConnectResetRequest;
-import io.xgrpc.api.remote.request.ConnectionSetupRequest;
-import io.xgrpc.api.remote.request.RequestMeta;
-import io.xgrpc.api.remote.response.ConnectResetResponse;
-import io.xgrpc.api.remote.response.Response;
-import io.xgrpc.common.remote.client.grpc.GrpcUtils;
-import io.xgrpc.common.utils.ReflectUtils;
-import io.xgrpc.core.remote.ConnectionManager;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Metadata;
@@ -49,6 +36,15 @@ import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
 import io.grpc.testing.GrpcCleanupRule;
+import io.xgrpc.api.grpc.auto.BiRequestStreamGrpc;
+import io.xgrpc.api.grpc.auto.Payload;
+import io.xgrpc.api.remote.request.ConnectResetRequest;
+import io.xgrpc.api.remote.request.ConnectionSetupRequest;
+import io.xgrpc.api.remote.request.RequestMeta;
+import io.xgrpc.api.remote.response.ConnectResetResponse;
+import io.xgrpc.api.remote.response.Response;
+import io.xgrpc.common.remote.client.grpc.GrpcUtils;
+import io.xgrpc.core.remote.connection.ConnectionManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

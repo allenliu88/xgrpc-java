@@ -44,16 +44,16 @@ public final class MetricsMonitor {
     private static AtomicInteger longConnection = new AtomicInteger();
     
     static {
-        RAFT_READ_INDEX_FAILED = NacosMeterRegistry.summary("protocol", "raft_read_index_failed");
-        RAFT_FROM_LEADER = NacosMeterRegistry.summary("protocol", "raft_read_from_leader");
+        RAFT_READ_INDEX_FAILED = XgrpcMeterRegistry.summary("protocol", "raft_read_index_failed");
+        RAFT_FROM_LEADER = XgrpcMeterRegistry.summary("protocol", "raft_read_from_leader");
         
-        RAFT_APPLY_LOG_TIMER = NacosMeterRegistry.timer("protocol", "raft_apply_log_timer");
-        RAFT_APPLY_READ_TIMER = NacosMeterRegistry.timer("protocol", "raft_apply_read_timer");
+        RAFT_APPLY_LOG_TIMER = XgrpcMeterRegistry.timer("protocol", "raft_apply_log_timer");
+        RAFT_APPLY_READ_TIMER = XgrpcMeterRegistry.timer("protocol", "raft_apply_read_timer");
         
         List<Tag> tags = new ArrayList<>();
         tags.add(new ImmutableTag("module", "config"));
         tags.add(new ImmutableTag("name", "longConnection"));
-        Metrics.gauge("nacos_monitor", tags, longConnection);
+        Metrics.gauge("xgrpc_monitor", tags, longConnection);
         
     }
     

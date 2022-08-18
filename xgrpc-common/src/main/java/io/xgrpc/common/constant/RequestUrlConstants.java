@@ -17,7 +17,7 @@
 package io.xgrpc.common.constant;
 
 /**
- * Nacos request url constants.
+ * Xgrpc request url constants.
  *
  * @author chenhao26
  */

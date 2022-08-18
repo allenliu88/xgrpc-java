@@ -607,7 +607,7 @@ public abstract class RpcClient implements Closeable {
     public abstract ConnectionType getConnectionType();
     
     /**
-     * increase offset of the nacos server port for the rpc server port.
+     * increase offset of the xgrpc server port for the rpc server port.
      *
      * @return rpc port offset
      */
@@ -920,7 +920,7 @@ public abstract class RpcClient implements Closeable {
         }
         
         String[] ipPortTuple = serverAddress.split(Constants.COLON, 2);
-        int defaultPort = Integer.parseInt(System.getProperty("nacos.server.port", "8848"));
+        int defaultPort = Integer.parseInt(System.getProperty("xgrpc.server.port", "8848"));
         String serverPort = CollectionUtils.getOrDefault(ipPortTuple, 1, Integer.toString(defaultPort));
         
         return new ServerInfo(ipPortTuple[0], NumberUtils.toInt(serverPort, defaultPort));

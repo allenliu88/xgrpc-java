@@ -18,14 +18,13 @@
 package io.xgrpc.core.remote.grpc;
 
 import io.xgrpc.common.remote.ConnectionType;
+import io.xgrpc.core.GrpcServerBootstrap;
 import io.xgrpc.core.remote.BaseRpcServer;
-import io.xgrpc.sys.env.EnvUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.mock.env.MockEnvironment;
 
 /**
  * {@link GrpcSdkServer} and {@link GrpcClusterServer} unit test.
@@ -38,19 +37,18 @@ public class GrpcServerTest {
     
     @Before
     public void setUp() {
-        EnvUtil.setEnvironment(new MockEnvironment());
+
     }
     
     @Test
     public void testGrpcSdkServer() throws Exception {
-        BaseGrpcServer grpcSdkServer = new GrpcSdkServer();
-        grpcSdkServer.start();
+        GrpcServerBootstrap.startServer();
+
+        Assert.assertEquals(GrpcServerBootstrap.getConnectionType(), ConnectionType.GRPC);
         
-        Assert.assertEquals(grpcSdkServer.getConnectionType(), ConnectionType.GRPC);
-        
-        Assert.assertEquals(grpcSdkServer.rpcPortOffset(), 1000);
-        
-        grpcSdkServer.stopServer();
+        Assert.assertEquals(GrpcServerBootstrap.rpcPortOffset(), 1000);
+
+        GrpcServerBootstrap.stopServer();
     }
     
     @Test

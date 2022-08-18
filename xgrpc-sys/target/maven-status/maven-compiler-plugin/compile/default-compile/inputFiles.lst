@@ -3,10 +3,8 @@
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/utils/DiskUtils.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/env/Constants.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/utils/MethodUtil.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/env/OriginTrackedPropertiesLoader.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/env/EnvUtil.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/utils/ApplicationUtils.java
-/Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/utils/PropertiesUtil.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/file/FileChangeEvent.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/env/OperatingSystemBeanManager.java
 /Users/allen/Customize/Share/Git/00-opensource/8-blog/xgrpc-java/xgrpc-sys/src/main/java/io/xgrpc/sys/file/FileWatcher.java

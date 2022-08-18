@@ -42,18 +42,18 @@ public abstract class BaseRpcServer {
     @PostConstruct
     public void start() throws Exception {
         String serverName = getClass().getSimpleName();
-        Loggers.REMOTE.info("Nacos {} Rpc server starting at port {}", serverName, getServicePort());
+        Loggers.REMOTE.info("Xgrpc {} Rpc server starting at port {}", serverName, getServicePort());
         
         startServer();
     
-        Loggers.REMOTE.info("Nacos {} Rpc server started at port {}", serverName, getServicePort());
+        Loggers.REMOTE.info("Xgrpc {} Rpc server started at port {}", serverName, getServicePort());
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            Loggers.REMOTE.info("Nacos {} Rpc server stopping", serverName);
+            Loggers.REMOTE.info("Xgrpc {} Rpc server stopping", serverName);
             try {
                 BaseRpcServer.this.stopServer();
-                Loggers.REMOTE.info("Nacos {} Rpc server stopped successfully...", serverName);
+                Loggers.REMOTE.info("Xgrpc {} Rpc server stopped successfully...", serverName);
             } catch (Exception e) {
-                Loggers.REMOTE.error("Nacos {} Rpc server stopped fail...", serverName, e);
+                Loggers.REMOTE.error("Xgrpc {} Rpc server stopped fail...", serverName, e);
             }
         }));
 
@@ -74,7 +74,7 @@ public abstract class BaseRpcServer {
     public abstract void startServer() throws Exception;
     
     /**
-     * the increase offset of nacos server port for rpc server port.
+     * the increase offset of xgrpc server port for rpc server port.
      *
      * @return delta port offset of main port.
      */
@@ -99,7 +99,7 @@ public abstract class BaseRpcServer {
     }
     
     /**
-     * the increase offset of nacos server port for rpc server port.
+     * the increase offset of xgrpc server port for rpc server port.
      */
     @PreDestroy
     public abstract void shutdownServer();

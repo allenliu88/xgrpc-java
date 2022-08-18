@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 /**
  * ip tool.
  *
- * @author Nacos
+ * @author Xgrpc
  */
 @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "PMD.ClassNamingShouldBeCamelRule"})
 public class InternetAddressUtil {
@@ -212,8 +212,8 @@ public class InternetAddressUtil {
     /**
      * judge str is right domain.（Check only rule）
      *
-     * @param str nacosIP
-     * @return nacosIP is domain
+     * @param str xgrpcIP
+     * @return xgrpcIP is domain
      */
     public static boolean isDomain(String str) {
         if (StringUtils.isBlank(str)) {

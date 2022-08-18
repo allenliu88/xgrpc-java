@@ -18,14 +18,8 @@ package io.xgrpc.core.remote.grpc;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.ThreadPoolExecutor;
+import javax.inject.Inject;
 
-import io.xgrpc.api.grpc.auto.Payload;
-import io.xgrpc.common.remote.ConnectionType;
-import io.xgrpc.common.utils.ReflectUtils;
-import io.xgrpc.common.utils.StringUtils;
-import io.xgrpc.core.remote.BaseRpcServer;
-import io.xgrpc.core.remote.ConnectionManager;
-import io.xgrpc.core.utils.Loggers;
 import io.grpc.Attributes;
 import io.grpc.CompressorRegistry;
 import io.grpc.Context;
@@ -47,7 +41,13 @@ import io.grpc.netty.shaded.io.netty.channel.Channel;
 import io.grpc.protobuf.ProtoUtils;
 import io.grpc.stub.ServerCalls;
 import io.grpc.util.MutableHandlerRegistry;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.xgrpc.api.grpc.auto.Payload;
+import io.xgrpc.common.remote.ConnectionType;
+import io.xgrpc.common.utils.ReflectUtils;
+import io.xgrpc.common.utils.StringUtils;
+import io.xgrpc.core.remote.BaseRpcServer;
+import io.xgrpc.core.remote.connection.ConnectionManager;
+import io.xgrpc.core.utils.Loggers;
 
 /**
  * Grpc implementation as a rpc server.
@@ -67,17 +67,17 @@ public abstract class BaseGrpcServer extends BaseRpcServer {
     
     private static final String REQUEST_METHOD_NAME = "request";
     
-    private static final String GRPC_MAX_INBOUND_MSG_SIZE_PROPERTY = "nacos.remote.server.grpc.maxinbound.message.size";
+    private static final String GRPC_MAX_INBOUND_MSG_SIZE_PROPERTY = "xgrpc.remote.server.grpc.maxinbound.message.size";
     
     private static final long DEFAULT_GRPC_MAX_INBOUND_MSG_SIZE = 10 * 1024 * 1024;
     
-    @Autowired
+    @Inject
     private GrpcRequestAcceptor grpcCommonRequestAcceptor;
     
-    @Autowired
+    @Inject
     private GrpcBiStreamRequestAcceptor grpcBiStreamRequestAcceptor;
-    
-    @Autowired
+
+    @Inject
     private ConnectionManager connectionManager;
     
     @Override

@@ -20,9 +20,9 @@ import io.xgrpc.api.common.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Nacos Exception.
+ * Xgrpc Exception.
  *
- * @author Nacos
+ * @author Xgrpc
  */
 public class XgrpcException extends Exception {
 
@@ -181,7 +181,7 @@ public class XgrpcException extends Exception {
     public static final int RESOURCE_NOT_FOUND = -404;
     
     /**
-     * http client error code, ome exceptions that occurred when the use the Nacos RestTemplate and Nacos
+     * http client error code, ome exceptions that occurred when the use the Xgrpc RestTemplate and Xgrpc
      * AsyncRestTemplate.
      */
     public static final int HTTP_CLIENT_ERROR_CODE = -500;

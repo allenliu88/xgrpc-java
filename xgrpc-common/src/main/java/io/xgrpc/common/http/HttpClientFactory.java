@@ -16,8 +16,8 @@
 
 package io.xgrpc.common.http;
 
-import io.xgrpc.common.http.client.NacosAsyncRestTemplate;
-import io.xgrpc.common.http.client.NacosRestTemplate;
+import io.xgrpc.common.http.client.XgrpcAsyncRestTemplate;
+import io.xgrpc.common.http.client.XgrpcRestTemplate;
 
 /**
  * http Client Factory.
@@ -27,17 +27,17 @@ import io.xgrpc.common.http.client.NacosRestTemplate;
 public interface HttpClientFactory {
     
     /**
-     * create new nacost rest.
+     * create new xgrpc rest.
      *
-     * @return NacosRestTemplate
+     * @return XgrpcRestTemplate
      */
-    NacosRestTemplate createNacosRestTemplate();
+    XgrpcRestTemplate createXgrpcRestTemplate();
     
     /**
-     * create new nacos async rest.
+     * create new xgrpc async rest.
      *
-     * @return NacosAsyncRestTemplate
+     * @return XgrpcAsyncRestTemplate
      */
-    NacosAsyncRestTemplate createNacosAsyncRestTemplate();
+    XgrpcAsyncRestTemplate createXgrpcAsyncRestTemplate();
     
 }

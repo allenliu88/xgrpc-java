@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="io.xgrpc.core.remote.RpcPushServiceTest" time="0.389" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="io.xgrpc.core.remote.RpcPushServiceTest" time="0.342" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -51,7 +51,7 @@
     <property name="gopherProxySet" value="false"/>
     <property name="maven.home" value="/Users/allen/Customize/FreeInstall/Maven/apache-maven-3.6.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
     <property name="java.class.path" value="/Users/allen/Customize/FreeInstall/Maven/apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="os.detected.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
@@ -76,6 +76,6 @@
     <property name="os.detected.version.minor" value="16"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="io.xgrpc.core.remote.RpcPushServiceTest" name="testPushWithoutAck" time="0.378"/>
-  <testcase classname="io.xgrpc.core.remote.RpcPushServiceTest" name="testPushWithCallback" time="0.011"/>
+  <testcase classname="io.xgrpc.core.remote.RpcPushServiceTest" name="testPushWithoutAck" time="0.332"/>
+  <testcase classname="io.xgrpc.core.remote.RpcPushServiceTest" name="testPushWithCallback" time="0.01"/>
 </testsuite>

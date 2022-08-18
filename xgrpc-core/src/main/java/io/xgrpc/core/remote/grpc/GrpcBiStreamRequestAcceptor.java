@@ -23,7 +23,10 @@ import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_REMOTE_I
 import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_REMOTE_PORT;
 
 import java.util.Map;
+import javax.inject.Inject;
 
+import io.grpc.stub.ServerCallStreamObserver;
+import io.grpc.stub.StreamObserver;
 import io.xgrpc.api.common.Constants;
 import io.xgrpc.api.grpc.auto.BiRequestStreamGrpc;
 import io.xgrpc.api.grpc.auto.Payload;
@@ -32,16 +35,12 @@ import io.xgrpc.api.remote.request.ConnectionSetupRequest;
 import io.xgrpc.api.remote.response.Response;
 import io.xgrpc.common.remote.ConnectionType;
 import io.xgrpc.common.remote.client.grpc.GrpcUtils;
-import io.xgrpc.core.remote.Connection;
-import io.xgrpc.core.remote.ConnectionManager;
-import io.xgrpc.core.remote.ConnectionMeta;
-import io.xgrpc.core.remote.RpcAckCallbackSynchronizer;
+import io.xgrpc.core.remote.connection.Connection;
+import io.xgrpc.core.remote.connection.ConnectionManager;
+import io.xgrpc.core.remote.connection.ConnectionMeta;
+import io.xgrpc.core.remote.push.RpcAckCallbackSynchronizer;
 import io.xgrpc.core.utils.Loggers;
 import io.xgrpc.sys.utils.ApplicationUtils;
-import io.grpc.stub.ServerCallStreamObserver;
-import io.grpc.stub.StreamObserver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * grpc bi stream request .
@@ -49,10 +48,8 @@ import org.springframework.stereotype.Service;
  * @author liuzunfei
  * @version $Id: GrpcBiStreamRequest.java, v 0.1 2020年09月01日 10:41 PM liuzunfei Exp $
  */
-@Service
 public class GrpcBiStreamRequestAcceptor extends BiRequestStreamGrpc.BiRequestStreamImplBase {
-    
-    @Autowired
+    @Inject
     ConnectionManager connectionManager;
     
     private void traceDetailIfNecessary(Payload grpcRequest) {

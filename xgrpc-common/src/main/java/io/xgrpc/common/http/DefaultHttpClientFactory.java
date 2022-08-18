@@ -25,7 +25,7 @@ import org.slf4j.Logger;
  */
 public class DefaultHttpClientFactory extends AbstractHttpClientFactory {
     
-    private static final int TIMEOUT = Integer.getInteger("nacos.http.timeout", 5000);
+    private static final int TIMEOUT = Integer.getInteger("xgrpc.http.timeout", 5000);
     
     private final Logger logger;
     

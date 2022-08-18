@@ -17,7 +17,7 @@
 package io.xgrpc.api.ability.initializer;
 
 /**
- * Nacos ability initializer.
+ * Xgrpc ability initializer.
  *
  * @author xiweng.yy
  */

@@ -21,7 +21,7 @@ import static io.xgrpc.api.common.Constants.Exception.DESERIALIZE_ERROR_CODE;
 import java.lang.reflect.Type;
 
 /**
- * Nacos deserialization exception.
+ * Xgrpc deserialization exception.
  *
  * @author yangyi
  */
@@ -29,11 +29,11 @@ public class XgrpcDeserializationException extends XgrpcRuntimeException {
     
     private static final long serialVersionUID = -2742350751684273728L;
     
-    private static final String DEFAULT_MSG = "Nacos deserialize failed. ";
+    private static final String DEFAULT_MSG = "Xgrpc deserialize failed. ";
     
-    private static final String MSG_FOR_SPECIFIED_CLASS = "Nacos deserialize for class [%s] failed. ";
+    private static final String MSG_FOR_SPECIFIED_CLASS = "Xgrpc deserialize for class [%s] failed. ";
     
-    private static final String ERROR_MSG_FOR_SPECIFIED_CLASS = "Nacos deserialize for class [%s] failed, cause error[%s]. ";
+    private static final String ERROR_MSG_FOR_SPECIFIED_CLASS = "Xgrpc deserialize for class [%s] failed, cause error[%s]. ";
     
     private Class<?> targetClass;
     

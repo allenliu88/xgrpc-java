@@ -18,6 +18,9 @@ package io.xgrpc.core.remote.grpc;
 
 import static io.xgrpc.core.remote.grpc.BaseGrpcServer.CONTEXT_KEY_CONN_ID;
 
+import javax.inject.Inject;
+
+import io.grpc.stub.StreamObserver;
 import io.xgrpc.api.exception.XgrpcException;
 import io.xgrpc.api.grpc.auto.Payload;
 import io.xgrpc.api.grpc.auto.RequestGrpc;
@@ -28,15 +31,12 @@ import io.xgrpc.api.remote.response.ErrorResponse;
 import io.xgrpc.api.remote.response.Response;
 import io.xgrpc.api.remote.response.ServerCheckResponse;
 import io.xgrpc.common.remote.client.grpc.GrpcUtils;
-import io.xgrpc.core.remote.Connection;
-import io.xgrpc.core.remote.ConnectionManager;
-import io.xgrpc.core.remote.RequestHandler;
-import io.xgrpc.core.remote.RequestHandlerRegistry;
+import io.xgrpc.core.remote.connection.Connection;
+import io.xgrpc.core.remote.connection.ConnectionManager;
+import io.xgrpc.core.remote.handler.RequestHandler;
+import io.xgrpc.core.remote.registry.RequestHandlerRegistry;
 import io.xgrpc.core.utils.Loggers;
 import io.xgrpc.sys.utils.ApplicationUtils;
-import io.grpc.stub.StreamObserver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * rpc request acceptor of grpc.
@@ -44,13 +44,10 @@ import org.springframework.stereotype.Service;
  * @author liuzunfei
  * @version $Id: GrpcCommonRequestAcceptor.java, v 0.1 2020年09月01日 10:52 AM liuzunfei Exp $
  */
-@Service
 public class GrpcRequestAcceptor extends RequestGrpc.RequestImplBase {
-    
-    @Autowired
+    @Inject
     RequestHandlerRegistry requestHandlerRegistry;
-    
-    @Autowired
+    @Inject
     private ConnectionManager connectionManager;
     
     private void traceIfNecessary(Payload grpcRequest, boolean receive) {

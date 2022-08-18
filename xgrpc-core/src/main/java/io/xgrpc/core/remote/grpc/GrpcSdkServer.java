@@ -20,7 +20,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 import io.xgrpc.api.common.Constants;
 import io.xgrpc.core.utils.GlobalExecutor;
-import org.springframework.stereotype.Service;
 
 /**
  * Grpc implementation as  a rpc server.
@@ -28,9 +27,7 @@ import org.springframework.stereotype.Service;
  * @author liuzunfei
  * @version $Id: BaseGrpcServer.java, v 0.1 2020年07月13日 3:42 PM liuzunfei Exp $
  */
-@Service
 public class GrpcSdkServer extends BaseGrpcServer {
-    
     @Override
     public int rpcPortOffset() {
         return Constants.SDK_GRPC_PORT_DEFAULT_OFFSET;
