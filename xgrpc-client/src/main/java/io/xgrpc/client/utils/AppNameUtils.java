@@ -24,7 +24,7 @@ import io.xgrpc.common.utils.StringUtils;
 /**
  * appName util.
  *
- * @author Nacos
+ * @author Xgrpc
  */
 public class AppNameUtils {
     

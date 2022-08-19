@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 /**
  * Limiter.
  *
- * @author Nacos
+ * @author xgrpc
  */
 public class Limiter {
     

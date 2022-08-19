@@ -1,6 +1,12 @@
 ## Introduction
 
-Build an excellent grpc-java framework, inspired by nacos.
+Build an excellent grpc-java framework, inspired by [Nacos](https://nacos.io/zh-cn/index.html).
+
+## Build and Install
+
+```shell
+mvn clean install -Dmaven.test.skip=true
+```
 
 ## Usage
 

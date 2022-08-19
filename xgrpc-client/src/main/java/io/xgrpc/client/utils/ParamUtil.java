@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 /**
  * manage param tool.
  *
- * @author nacos
+ * @author xgrpc
  */
 public class ParamUtil {
     
@@ -54,19 +54,19 @@ public class ParamUtil {
     
     private static double perTaskConfigSize = 3000;
     
-    private static final String NACOS_CLIENT_APP_KEY = "nacos.client.appKey";
+    private static final String XGRPC_CLIENT_APP_KEY = "xgrpc.client.appKey";
     
     private static final String BLANK_STR = "";
     
-    private static final String NACOS_CLIENT_CONTEXTPATH_KEY = "nacos.client.contextPath";
+    private static final String XGRPC_CLIENT_CONTEXTPATH_KEY = "xgrpc.client.contextPath";
     
-    private static final String DEFAULT_NACOS_CLIENT_CONTEXTPATH = "nacos";
+    private static final String DEFAULT_XGRPC_CLIENT_CONTEXTPATH = "xgrpc";
     
-    private static final String NACOS_SERVER_PORT_KEY = "nacos.server.port";
+    private static final String XGRPC_SERVER_PORT_KEY = "xgrpc.server.port";
     
-    private static final String NACOS_CONNECT_TIMEOUT_KEY = "NACOS.CONNECT.TIMEOUT";
+    private static final String XGRPC_CONNECT_TIMEOUT_KEY = "XGRPC.CONNECT.TIMEOUT";
     
-    private static final String DEFAULT_NACOS_CONNECT_TIMEOUT = "1000";
+    private static final String DEFAULT_XGRPC_CONNECT_TIMEOUT = "1000";
     
     private static final String PER_TASK_CONFIG_SIZE_KEY = "PER_TASK_CONFIG_SIZE";
     
@@ -74,18 +74,18 @@ public class ParamUtil {
     
     static {
         // Client identity information
-        appKey = System.getProperty(NACOS_CLIENT_APP_KEY, BLANK_STR);
+        appKey = System.getProperty(XGRPC_CLIENT_APP_KEY, BLANK_STR);
         
-        defaultContextPath = System.getProperty(NACOS_CLIENT_CONTEXTPATH_KEY, DEFAULT_NACOS_CLIENT_CONTEXTPATH);
+        defaultContextPath = System.getProperty(XGRPC_CLIENT_CONTEXTPATH_KEY, DEFAULT_XGRPC_CLIENT_CONTEXTPATH);
         
         appName = AppNameUtils.getAppName();
         
-        serverPort = System.getProperty(NACOS_SERVER_PORT_KEY, DEFAULT_SERVER_PORT);
-        LOGGER.info("[settings] [req-serv] nacos-server port:{}", serverPort);
+        serverPort = System.getProperty(XGRPC_SERVER_PORT_KEY, DEFAULT_SERVER_PORT);
+        LOGGER.info("[settings] [req-serv] xgrpc-server port:{}", serverPort);
         
         String tmp = "1000";
         try {
-            tmp = System.getProperty(NACOS_CONNECT_TIMEOUT_KEY, DEFAULT_NACOS_CONNECT_TIMEOUT);
+            tmp = System.getProperty(XGRPC_CONNECT_TIMEOUT_KEY, DEFAULT_XGRPC_CONNECT_TIMEOUT);
             connectTimeout = Integer.parseInt(tmp);
         } catch (NumberFormatException e) {
             final String msg = "[http-client] invalid connect timeout:" + tmp;

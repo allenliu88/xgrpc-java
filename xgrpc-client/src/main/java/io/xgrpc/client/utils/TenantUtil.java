@@ -21,7 +21,7 @@ import io.xgrpc.common.utils.StringUtils;
 /**
  * Tenant Util.
  *
- * @author Nacos
+ * @author xgrpc
  */
 public class TenantUtil {
     

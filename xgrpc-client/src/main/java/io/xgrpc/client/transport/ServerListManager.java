@@ -54,13 +54,13 @@ import org.slf4j.Logger;
 /**
  * Serverlist Manager.
  *
- * @author Nacos
+ * @author xgrpc
  */
 public class ServerListManager implements Closeable {
     
     private static final Logger LOGGER = LogUtils.logger(ServerListManager.class);
     
-    private final XgrpcRestTemplate nacosRestTemplate = XgrpcHttpClientManager.getInstance().getXgrpcRestTemplate();
+    private final XgrpcRestTemplate xgrpcRestTemplate = XgrpcHttpClientManager.getInstance().getXgrpcRestTemplate();
     
     private final ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1, r -> {
         Thread t = new Thread(r);
@@ -310,7 +310,7 @@ public class ServerListManager implements Closeable {
     /**
      * Start.
      *
-     * @throws XgrpcException nacos exception
+     * @throws XgrpcException xgrpc exception
      */
     public synchronized void start() throws XgrpcException {
         
@@ -329,10 +329,10 @@ public class ServerListManager implements Closeable {
         }
         
         if (serverUrls.isEmpty()) {
-            LOGGER.error("[init-serverlist] fail to get NACOS-server serverlist! env: {}, url: {}", name,
+            LOGGER.error("[init-serverlist] fail to get xgrpc-server serverlist! env: {}, url: {}", name,
                     addressServerUrl);
             throw new XgrpcException(XgrpcException.SERVER_ERROR,
-                    "fail to get NACOS-server serverlist! env:" + name + ", not connnect url:" + addressServerUrl);
+                    "fail to get xgrpc-server serverlist! env:" + name + ", not connnect url:" + addressServerUrl);
         }
         
         // executor schedules the timer task
@@ -412,7 +412,7 @@ public class ServerListManager implements Closeable {
     
     private List<String> getApacheServerList(String url, String name) {
         try {
-            HttpRestResult<String> httpResult = nacosRestTemplate.get(url, Header.EMPTY, Query.EMPTY, String.class);
+            HttpRestResult<String> httpResult = xgrpcRestTemplate.get(url, Header.EMPTY, Query.EMPTY, String.class);
             
             if (httpResult.ok()) {
                 if (DEFAULT_NAME.equals(name)) {

@@ -75,7 +75,7 @@ public class XgrpcHttpClientManager implements Closeable {
     
     @Override
     public void shutdown() throws XgrpcException {
-        NAMING_LOGGER.warn("[ConfigHttpClientManager] Start destroying NacosRestTemplate");
+        NAMING_LOGGER.warn("[ConfigHttpClientManager] Start destroying xgrpcRestTemplate");
         try {
             HttpClientBeanHolder.shutdownXgrpcSyncRest(HTTP_CLIENT_FACTORY.getClass().getName());
         } catch (Exception ex) {
@@ -96,9 +96,9 @@ public class XgrpcHttpClientManager implements Closeable {
     }
     
     /**
-     * get NacosRestTemplate Instance.
+     * get XgrpcRestTemplate Instance.
      *
-     * @return NacosRestTemplate
+     * @return XgrpcRestTemplate
      */
     public XgrpcRestTemplate getXgrpcRestTemplate() {
         return XGRPC_REST_TEMPLATE;
