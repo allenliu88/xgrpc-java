@@ -63,18 +63,10 @@
             <artifactId>mycila-guice-jsr250</artifactId>
         </dependency>
 
-        <!-- JRaft dependency start -->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
-            <artifactId>jraft-core</artifactId>
+            <artifactId>hessian</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.alipay.sofa</groupId>
-            <artifactId>rpc-grpc-impl</artifactId>
-        </dependency>
-        <!-- JRaft dependency end -->
-
         <dependency>
             <groupId>org.javatuples</groupId>
             <artifactId>javatuples</artifactId>
