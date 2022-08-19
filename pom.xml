@@ -22,6 +22,7 @@
         <module>xgrpc-common</module>
         <module>xgrpc-core</module>
         <module>xgrpc-sys</module>
+        <module>xgrpc-client</module>
     </modules>
 
     <licenses>
