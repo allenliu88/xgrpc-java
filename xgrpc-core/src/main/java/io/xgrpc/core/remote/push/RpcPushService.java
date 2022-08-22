@@ -138,7 +138,8 @@ public class RpcPushService {
         // request
         String connectionId = connection.getMetaInfo().getConnectionId();
         try {
-            return connection.request(request, 3000L);
+            Response response = connection.request(request, 3000L);
+            return response;
         } catch (ConnectionAlreadyClosedException e) {
             connectionManager.unregister(connectionId);
         } catch (Exception e) {
