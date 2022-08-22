@@ -34,6 +34,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.MapDifference;
+import com.google.common.collect.Maps;
 import io.xgrpc.api.common.Constants;
 import io.xgrpc.api.exception.XgrpcException;
 import io.xgrpc.api.remote.RemoteConstants;
@@ -238,6 +241,29 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
      */
     public Connection getConnection(String connectionId) {
         return connections.get(connectionId);
+    }
+
+    /**
+     * get by labels
+     *
+     * @param labels labels
+     * @return connections of the same labels
+     */
+    public List<Connection> getConnectionByLabels(Map<String, String> labels) {
+        Set<Map.Entry<String, Connection>> entries = connections.entrySet();
+
+        List<Connection> connections = new ArrayList<>();
+        for (Map.Entry<String, Connection> entry : entries) {
+            Connection value = entry.getValue();
+
+            MapDifference<String, String> diff = Maps.difference(ImmutableMap.copyOf(value.getLabels()), labels);
+            Map<String, String> intersect = diff.entriesInCommon();
+
+            if (intersect.size() == labels.size()) {
+                connections.add(value);
+            }
+        }
+        return connections;
     }
     
     /**

@@ -16,6 +16,8 @@
 
 package io.xgrpc.api.remote;
 
+import io.xgrpc.api.remote.response.Response;
+
 /**
  * callback of push service.
  *
@@ -34,7 +36,7 @@ public interface PushCallBack {
     /**
      * invoked on success.
      */
-    void onSuccess();
+    void onSuccess(Response response);
     
     /**
      * invoked on fail.

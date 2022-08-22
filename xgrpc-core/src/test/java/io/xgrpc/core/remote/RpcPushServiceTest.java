@@ -21,6 +21,7 @@ import java.util.UUID;
 
 import io.xgrpc.api.exception.XgrpcException;
 import io.xgrpc.api.remote.PushCallBack;
+import io.xgrpc.api.remote.response.Response;
 import io.xgrpc.common.remote.exception.ConnectionAlreadyClosedException;
 import io.xgrpc.core.remote.connection.ConnectionManager;
 import io.xgrpc.core.remote.grpc.GrpcConnection;
@@ -64,7 +65,7 @@ public class RpcPushServiceTest {
                 }
     
                 @Override
-                public void onSuccess() {
+                public void onSuccess(Response response) {
                     System.out.println("success");
                 }
     

@@ -16,6 +16,9 @@
 
 package io.xgrpc.core.remote.push;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
 
@@ -46,43 +49,65 @@ public class RpcPushService {
      * @param request         request.
      * @param requestCallBack requestCallBack.
      */
-    public void pushWithCallback(String connectionId, ServerRequest request, PushCallBack requestCallBack,
-            Executor executor) {
+    public void pushWithCallback(String connectionId, ServerRequest request, PushCallBack requestCallBack, Executor executor) {
         Connection connection = connectionManager.getConnection(connectionId);
-        if (connection != null) {
-            try {
-                connection.asyncRequest(request, new AbstractRequestCallBack(requestCallBack.getTimeout()) {
-                    
-                    @Override
-                    public Executor getExecutor() {
-                        return executor;
+        this.pushWithCallbackInternal(connection, request, requestCallBack, executor);
+    }
+
+    /**
+     * push response with no ack.
+     *
+     * @param clientIdentifyLabels    labels to identify clients.
+     * @param request         request.
+     * @param requestCallBack requestCallBack.
+     */
+    public void pushWithCallback(Map<String, String> clientIdentifyLabels, ServerRequest request, PushCallBack requestCallBack, Executor executor) {
+        List<Connection> connectionList = connectionManager.getConnectionByLabels(clientIdentifyLabels);
+        connectionList.forEach(connection -> this.pushWithCallbackInternal(connection, request, requestCallBack, executor));
+    }
+
+    private void pushWithCallbackInternal(
+            Connection connection,
+            ServerRequest request,
+            PushCallBack requestCallBack,
+            Executor executor) {
+        String connectionId = connection.getMetaInfo().getConnectionId();
+
+        if (connection == null) {
+            requestCallBack.onSuccess(null);
+            return;
+        }
+
+        // request with call back
+        try {
+            connection.asyncRequest(request, new AbstractRequestCallBack(requestCallBack.getTimeout()) {
+                @Override
+                public Executor getExecutor() {
+                    return executor;
+                }
+
+                @Override
+                public void onResponse(Response response) {
+                    if (response.isSuccess()) {
+                        requestCallBack.onSuccess(response);
+                    } else {
+                        requestCallBack.onFail(new XgrpcException(response.getErrorCode(), response.getMessage()));
                     }
-                    
-                    @Override
-                    public void onResponse(Response response) {
-                        if (response.isSuccess()) {
-                            requestCallBack.onSuccess();
-                        } else {
-                            requestCallBack.onFail(new XgrpcException(response.getErrorCode(), response.getMessage()));
-                        }
-                    }
-                    
-                    @Override
-                    public void onException(Throwable e) {
-                        requestCallBack.onFail(e);
-                    }
-                });
-            } catch (ConnectionAlreadyClosedException e) {
-                connectionManager.unregister(connectionId);
-                requestCallBack.onSuccess();
-            } catch (Exception e) {
-                Loggers.REMOTE_DIGEST
-                        .error("error to send push response to connectionId ={},push response={}", connectionId,
-                                request, e);
-                requestCallBack.onFail(e);
-            }
-        } else {
-            requestCallBack.onSuccess();
+                }
+
+                @Override
+                public void onException(Throwable e) {
+                    requestCallBack.onFail(e);
+                }
+            });
+        } catch (ConnectionAlreadyClosedException e) {
+            connectionManager.unregister(connectionId);
+            requestCallBack.onSuccess(null);
+        } catch (Exception e) {
+            Loggers.REMOTE_DIGEST
+                    .error("error to send push response to connectionId ={},push response={}", connectionId,
+                            request, e);
+            requestCallBack.onFail(e);
         }
     }
     
@@ -92,19 +117,36 @@ public class RpcPushService {
      * @param connectionId connectionId.
      * @param request      request.
      */
-    public void pushWithoutAck(String connectionId, ServerRequest request) {
+    public Response pushWithoutAck(String connectionId, ServerRequest request) {
         Connection connection = connectionManager.getConnection(connectionId);
-        if (connection != null) {
-            try {
-                connection.request(request, 3000L);
-            } catch (ConnectionAlreadyClosedException e) {
-                connectionManager.unregister(connectionId);
-            } catch (Exception e) {
-                Loggers.REMOTE_DIGEST
-                        .error("error to send push response to connectionId ={},push response={}", connectionId,
-                                request, e);
-            }
-        }
+        return this.pushWithoutAckInternal(connection, request);
     }
-    
+
+    public Map<String, Response> pushWithoutAck(Map<String, String> clientIdentifyLabels, ServerRequest request) {
+        List<Connection> connectionList = connectionManager.getConnectionByLabels(clientIdentifyLabels);
+
+        Map<String, Response> ret = new HashMap<>(2);
+        connectionList.forEach(connection -> ret.put(connection.getMetaInfo().getConnectionId(), this.pushWithoutAckInternal(connection, request)));
+        return ret;
+    }
+
+    private Response pushWithoutAckInternal(Connection connection, ServerRequest request) {
+        if (connection == null) {
+            return null;
+        }
+
+        // request
+        String connectionId = connection.getMetaInfo().getConnectionId();
+        try {
+            return connection.request(request, 3000L);
+        } catch (ConnectionAlreadyClosedException e) {
+            connectionManager.unregister(connectionId);
+        } catch (Exception e) {
+            Loggers.REMOTE_DIGEST
+                    .error("error to send push response to connectionId ={},push response={}", connectionId,
+                            request, e);
+        }
+
+        return null;
+    }
 }
