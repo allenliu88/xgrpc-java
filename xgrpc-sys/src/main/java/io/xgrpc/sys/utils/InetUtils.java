@@ -1,5 +1,5 @@
 /*
- * Copyright 1999-2018 Alibaba Group Holding Ltd.
+ * Copyright 1999-2018 Xgrpc Holding Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ public class InetUtils {
     private static final List<String> IGNORED_INTERFACES = new ArrayList<>();
     
     private static final ScheduledExecutorService INET_AUTO_REFRESH_EXECUTOR = ExecutorFactory.Managed.newSingleScheduledExecutorService(
-            InetUtils.class.getCanonicalName(), new NameThreadFactory("com.alibaba.inet.ip.auto-refresh"));
+            InetUtils.class.getCanonicalName(), new NameThreadFactory("io.xgrpc.inet.ip.auto-refresh"));
     
     private static volatile String selfIP;
     
