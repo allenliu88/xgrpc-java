@@ -123,15 +123,17 @@ public class GrpcBiStreamRequestAcceptor extends BiRequestStreamGrpc.BiRequestSt
                     if (rejectSdkOnStarting || !connectionManager.register(connectionId, connection)) {
                         //Not register to the connection manager if current server is over limit or server is starting.
                         try {
-                            Loggers.REMOTE_DIGEST.warn("[{}]Connection register fail,reason:{}", connectionId,
-                                    rejectSdkOnStarting ? " server is not started" : " server is over limited.");
-                            connection.request(new ConnectResetRequest(), 3000L);
+                            String reason = rejectSdkOnStarting ? " server is not started" : " server is over limited.";
+                            Loggers.REMOTE_DIGEST.warn("[{}]Connection register fail, reason:{}", connectionId, reason);
+                            ConnectResetRequest connectResetRequest = new ConnectResetRequest();
+                            connectResetRequest.setReason(reason + "【requestBiStream】");
+                            connection.request(connectResetRequest, 3000L);
                             connection.close();
                         } catch (Exception e) {
                             //Do nothing.
                             if (connectionManager.traced(clientIp)) {
                                 Loggers.REMOTE_DIGEST
-                                        .warn("[{}]Send connect reset request error,error={}", connectionId, e);
+                                        .warn("[{}]Send connect reset request error, error={}", connectionId, e);
                             }
                         }
                     }

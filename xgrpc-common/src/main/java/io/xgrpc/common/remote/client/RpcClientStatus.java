@@ -62,4 +62,13 @@ public enum RpcClientStatus {
         this.status = status;
         this.desc = desc;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("RpcClientStatus{");
+        sb.append("status=").append(status);
+        sb.append(", desc='").append(desc).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

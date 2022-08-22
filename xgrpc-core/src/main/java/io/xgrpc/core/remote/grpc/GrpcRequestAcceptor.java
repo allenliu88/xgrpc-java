@@ -68,7 +68,6 @@ public class GrpcRequestAcceptor extends RequestGrpc.RequestImplBase {
     
     @Override
     public void request(Payload grpcRequest, StreamObserver<Payload> responseObserver) {
-        
         traceIfNecessary(grpcRequest, true);
         String type = grpcRequest.getMetadata().getType();
         

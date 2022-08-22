@@ -419,16 +419,17 @@ public abstract class RpcClient implements Closeable {
     }
     
     class ConnectResetRequestHandler implements ServerRequestHandler {
-        
         @Override
         public Response requestReply(Request request) {
-            
             if (request instanceof ConnectResetRequest) {
-                
+                ConnectResetRequest connectResetRequest = (ConnectResetRequest) request;
+                if (connectResetRequest != null) {
+                    LOGGER.error("ConnectResetRequestHandler === Connection is reset by reason {}", connectResetRequest.getReason());
+                }
+
                 try {
                     synchronized (RpcClient.this) {
                         if (isRunning()) {
-                            ConnectResetRequest connectResetRequest = (ConnectResetRequest) request;
                             if (StringUtils.isNotBlank(connectResetRequest.getServerIp())) {
                                 ServerInfo serverInfo = resolveServerInfo(
                                         connectResetRequest.getServerIp() + Constants.COLON + connectResetRequest
@@ -437,13 +438,20 @@ public abstract class RpcClient implements Closeable {
                             } else {
                                 switchServerAsync();
                             }
+                        } else {
+                            LOGGER.info("The status of the client is not running, no need to switch server, current status is {}.", RpcClient.this.rpcClientStatus);
                         }
                     }
                 } catch (Exception e) {
                     LoggerUtils.printIfErrorEnabled(LOGGER, "[{}] Switch server error, {}", name, e);
                 }
+
                 return new ConnectResetResponse();
+            } else {
+                LOGGER.info("The request from server is {}, skipped!!! And current ConnectResetRequestHandler will only process ConnectResetRequest", request.getClass().getName());
             }
+
+            // Return null means current handler does not support to handle the server request
             return null;
         }
     }
@@ -823,7 +831,6 @@ public abstract class RpcClient implements Closeable {
      * @return response.
      */
     protected Response handleServerRequest(final Request request) {
-        
         LoggerUtils.printIfInfoEnabled(LOGGER, "[{}] Receive server push request, request = {}, requestId = {}", name,
                 request.getClass().getSimpleName(), request.getRequestId());
         lastActiveTimeStamp = System.currentTimeMillis();
@@ -842,6 +849,8 @@ public abstract class RpcClient implements Closeable {
             }
             
         }
+
+        // Return null means no response to send to server
         return null;
     }
     

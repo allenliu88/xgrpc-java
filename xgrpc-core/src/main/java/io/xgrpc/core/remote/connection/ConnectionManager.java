@@ -138,7 +138,6 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
      * @param connection   connection
      */
     public synchronized boolean register(String connectionId, Connection connection) {
-        
         if (connection.isConnected()) {
             if (connections.containsKey(connectionId)) {
                 return true;
@@ -386,6 +385,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
                             ConnectResetRequest connectResetRequest = new ConnectResetRequest();
                             connectResetRequest.setServerIp(serverIp);
                             connectResetRequest.setServerPort(serverPort);
+                            connectResetRequest.setReason("Expelled by server over limit in 【ConnectionManager.start】");
                             connection.asyncRequest(connectResetRequest, null);
                             Loggers.REMOTE_DIGEST
                                     .info("Send connection reset request , connection id = {},recommendServerIp={}, recommendServerPort={}",
@@ -494,7 +494,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
     }
     
     /**
-     * send load request to spefic connetionId.
+     * send load request to specific connectionId.
      *
      * @param connectionId    connection id of client.
      * @param redirectAddress server address to redirect.
@@ -509,6 +509,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
                     String[] split = redirectAddress.split(Constants.COLON);
                     connectResetRequest.setServerIp(split[0]);
                     connectResetRequest.setServerPort(split[1]);
+                    connectResetRequest.setReason("Expel specific connection in 【loadSingle】");
                 }
                 try {
                     connection.request(connectResetRequest, 3000L);

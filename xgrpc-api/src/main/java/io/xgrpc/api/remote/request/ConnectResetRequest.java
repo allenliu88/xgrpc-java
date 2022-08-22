@@ -25,7 +25,7 @@ import static io.xgrpc.api.common.Constants.Remote.INTERNAL_MODULE;
  * @version $Id: ConnectResetRequest.java, v 0.1 2020年07月15日 11:11 AM liuzunfei Exp $
  */
 public class ConnectResetRequest extends ServerRequest {
-    
+    String reason;
     String serverIp;
     
     String serverPort;
@@ -34,7 +34,15 @@ public class ConnectResetRequest extends ServerRequest {
     public String getModule() {
         return INTERNAL_MODULE;
     }
-    
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     /**
      * Getter method for property <tt>serverIp</tt>.
      *
