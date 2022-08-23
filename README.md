@@ -8,6 +8,11 @@ Build an excellent grpc-java framework, inspired by [Nacos](https://nacos.io/zh-
 mvn clean install -Dmaven.test.skip=true
 ```
 
+## Repo
+- [Java Server](https://github.com/allenliu88/xgrpc-java/tree/main/xgrpc-core)
+- [Java Client](https://github.com/allenliu88/xgrpc-java/tree/main/xgrpc-client)
+- [Golang Client](https://github.com/allenliu88/xgrpc-client-go)
+
 ## Usage
 
 [Usage Example Git Repo](https://github.com/allenliu88/xgrpc-java-example).
